@@ -1,0 +1,261 @@
+<body data-theme="dark">
+
+<!-- NAVBAR -->
+<nav id="top">
+  <a href="#top" class="nav-logo">
+    <img src="https://demo.adwaros.com/images/logo.png" alt="Adwar Logo" id="logo-img">
+    <span class="nav-logo-text">
+      <span id="nav-brand-ar">أدوار</span>
+      <span id="nav-brand-en" style="display:none">Adwar</span>
+    </span>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#features" id="nl-features">الميزات</a></li>
+    <li><a href="#how" id="nl-how">كيف يعمل</a></li>
+    <li><a href="#pricing" id="nl-pricing">الأسعار</a></li>
+    <li><a href="#faq" id="nl-faq">الأسئلة الشائعة</a></li>
+    <li><a href="#contact" id="nl-contact">تواصل معنا</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-lang" onclick="toggleLang()" id="lang-btn" title="Switch language">EN</button>
+    <button class="btn-theme" onclick="toggleTheme()" id="theme-btn" title="Toggle theme">🌙</button>
+    <a href="mailto:karimkatabi@gmail.com?subject=طلب عرض تجريبي - أدوار&body=السلام عليكم، أود حجز عرض تجريبي لمنصة أدوار." class="btn-cta-nav" id="nav-cta">احجز عرضاً تجريبياً</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      <span id="badge-text">منصة تنسيق المبيعات B2B من شركة أدوار التقنية</span>
+    </div>
+    <h1 id="hero-title">
+      طوّر مبيعات الجملة مع<br>
+      <span class="gradient" id="hero-gradient">أدوار: تنظيم. أداء. قياس.</span>
+    </h1>
+    <p class="hero-sub" id="hero-sub">
+      الطبقة الوسيطة الذكية التي تنسّق بين نظامك المحاسبي ومستودعاتك — فتمنح فريق مبيعاتك رؤية موحّدة وأدوات محترفة للبيع بكفاءة أعلى.
+    </p>
+    <div class="hero-actions">
+      <a href="mailto:karimkatabi@gmail.com?subject=طلب عرض تجريبي - أدوار" class="btn-primary" id="hero-cta1">
+        📅 <span id="cta1-text">احجز عرضاً تجريبياً</span>
+      </a>
+      <a href="https://wa.me/966555880695?text=مرحباً، أريد الاستفسار عن منصة أدوار" class="btn-secondary" id="hero-cta2" target="_blank" rel="noopener">
+        💬 <span id="cta2-text">تحدّث مع فريقنا</span>
+      </a>
+    </div>
+    <div class="mockup-wrap">
+      <div class="mockup-glow"></div>
+      <div class="hero-mockup">
+        <div class="mockup-bar">
+          <span class="dot dot-r"></span>
+          <span class="dot dot-y"></span>
+          <span class="dot dot-g"></span>
+          <span class="mockup-url">adwaros.com/admin/dashboard</span>
+        </div>
+        <div class="mockup-body">
+          <div class="mock-sidebar">
+            <div class="mock-logo">
+              <div class="mock-logo-icon"></div>
+              <span class="mock-logo-text" id="mock-logo-txt">أدوار</span>
+            </div>
+            <div class="mock-nav-item active">📊 <span id="mn1">لوحة التحكم</span></div>
+            <div class="mock-nav-item">👥 <span id="mn2">العملاء المحتملون</span></div>
+            <div class="mock-nav-item">📋 <span id="mn3">عروض الأسعار</span></div>
+            <div class="mock-nav-item">📦 <span id="mn4">الطلبات</span></div>
+            <div class="mock-nav-item">🚚 <span id="mn5">الشحنات</span></div>
+            <div class="mock-nav-item">💰 <span id="mn6">سندات القبض</span></div>
+            <div class="mock-nav-item">📈 <span id="mn7">مؤشرات الأداء</span></div>
+          </div>
+          <div class="mock-main">
+            <div class="mock-topbar">
+              <span class="mock-title" id="mock-main-title">نظرة عامة — مايو 2026</span>
+              <button class="mock-btn" id="mock-cta-btn">+ إنشاء عرض سعر</button>
+            </div>
+            <div class="mock-stats">
+              <div class="mock-stat"><div class="mock-stat-val">247</div><div class="mock-stat-lbl" id="ms1">عميل نشط</div></div>
+              <div class="mock-stat"><div class="mock-stat-val">1.2M</div><div class="mock-stat-lbl" id="ms2">إيرادات (ريال)</div></div>
+              <div class="mock-stat"><div class="mock-stat-val">89%</div><div class="mock-stat-lbl" id="ms3">معدل إغلاق</div></div>
+              <div class="mock-stat"><div class="mock-stat-val">34</div><div class="mock-stat-lbl" id="ms4">طلب قيد التنفيذ</div></div>
+            </div>
+            <div class="mock-table">
+              <div class="mock-th">
+                <span id="th1">العميل</span>
+                <span id="th2">القيمة (ريال)</span>
+                <span id="th3">الحالة</span>
+                <span id="th4">المندوب</span>
+              </div>
+              <div class="mock-tr">
+                <span>Marriott Jeddah</span>
+                <span>84,500</span>
+                <span><span class="badge badge-g" id="badge-confirmed">مؤكد</span></span>
+                <span>أحمد م.</span>
+              </div>
+              <div class="mock-tr">
+                <span>Hilton Riyadh</span>
+                <span>62,000</span>
+                <span><span class="badge badge-y" id="badge-pending">قيد المراجعة</span></span>
+                <span>سارة ع.</span>
+              </div>
+              <div class="mock-tr">
+                <span>Four Seasons KAFD</span>
+                <span>120,000</span>
+                <span><span class="badge badge-b" id="badge-new">جديد</span></span>
+                <span>خالد ر.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <span class="trust-icon">🏨</span>
+      <div>
+        <div class="trust-num">+50</div>
+        <div class="trust-lbl" id="tr1">شركة تثق بنا</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">📦</span>
+      <div>
+        <div class="trust-num">+10,000</div>
+        <div class="trust-lbl" id="tr2">طلب مُعالَج</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">⚡</span>
+      <div>
+        <div class="trust-num">3x</div>
+        <div class="trust-lbl" id="tr3">سرعة دورة المبيعات</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🇸🇦</span>
+      <div>
+        <div class="trust-num">جدة</div>
+        <div class="trust-lbl" id="tr4">شركة سعودية 100%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM / SOLUTION -->
+<section class="section" id="problem">
+  <div class="section-inner">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;">
+      <div>
+        <span class="section-tag" id="prob-tag">التحدي</span>
+        <h2 class="section-title" id="prob-title">لماذا يُخفق فريق المبيعات في الجملة؟</h2>
+        <p class="section-sub" id="prob-sub">فرق الجملة تعاني يومياً من فجوة المعلومات بين الأنظمة. أدوار يُغلق هذه الفجوة.</p>
+        <ul style="list-style:none;">
+          <li style="display:flex;align-items:flex-start;gap:1rem;padding:1rem;background:var(--card-bg);border:1px solid var(--surface-border);border-radius:12px;margin-bottom:.75rem;backdrop-filter:blur(10px);transition:all .2s;" onmouseenter="this.style.borderColor='var(--primary)'" onmouseleave="this.style.borderColor='var(--surface-border)'">
+            <span style="font-size:1.3rem;flex-shrink:0">😤</span>
+            <div><strong style="display:block;font-weight:600;color:var(--text);font-size:.92rem;" id="p1-title">بيانات مبعثرة بين أنظمة متعددة</strong><span style="font-size:.82rem;color:var(--text3);" id="p1-desc">المحاسبة في مكان، المخزون في مكان آخر، وفريق المبيعات يعمل بصورة ضبابية.</span></div>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:1rem;padding:1rem;background:var(--card-bg);border:1px solid var(--surface-border);border-radius:12px;margin-bottom:.75rem;backdrop-filter:blur(10px);transition:all .2s;" onmouseenter="this.style.borderColor='var(--primary)'" onmouseleave="this.style.borderColor='var(--surface-border)'">
+            <span style="font-size:1.3rem;flex-shrink:0">⏳</span>
+            <div><strong style="display:block;font-weight:600;color:var(--text);font-size:.92rem;" id="p2-title">دورات موافقة بطيئة تُضيع الصفقات</strong><span style="font-size:.82rem;color:var(--text3);" id="p2-desc">عروض الأسعار تُعتمد بالورق أو البريد، والعميل يصبر أياماً على رد.</span></div>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:1rem;padding:1rem;background:var(--card-bg);border:1px solid var(--surface-border);border-radius:12px;margin-bottom:.75rem;backdrop-filter:blur(10px);transition:all .2s;" onmouseenter="this.style.borderColor='var(--primary)'" onmouseleave="this.style.borderColor='var(--surface-border)'">
+            <span style="font-size:1.3rem;flex-shrink:0">📉</span>
+            <div><strong style="display:block;font-weight:600;color:var(--text);font-size:.92rem;" id="p3-title">غياب رؤية أداء المندوبين</strong><span style="font-size:.82rem;color:var(--text3);" id="p3-desc">لا توجد مؤشرات واضحة لمعرفة من يُنجز ومن يُقصّر.</span></div>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:1rem;padding:1rem;background:var(--card-bg);border:1px solid var(--surface-border);border-radius:12px;backdrop-filter:blur(10px);transition:all .2s;" onmouseenter="this.style.borderColor='var(--primary)'" onmouseleave="this.style.borderColor='var(--surface-border)'">
+            <span style="font-size:1.3rem;flex-shrink:0">🔄</span>
+            <div><strong style="display:block;font-weight:600;color:var(--text);font-size:.92rem;" id="p4-title">تكرار إدخال البيانات يدوياً</strong><span style="font-size:.82rem;color:var(--text3);" id="p4-desc">المندوب يُدخل نفس البيانات في ثلاثة أنظمة، والأخطاء تتراكم.</span></div>
+          </li>
+        </ul>
+      </div>
+      <div style="background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(99,102,241,.08));border:1px solid var(--surface-border);border-radius:20px;padding:2.5rem;backdrop-filter:blur(10px);">
+        <div style="text-align:center;margin-bottom:2rem;">
+          <span style="font-size:3rem;">🎯</span>
+          <h3 style="font-size:1.3rem;font-weight:700;color:var(--text);margin-top:.75rem;" id="sol-title">أدوار: الحل الجوهري</h3>
+          <p style="font-size:.88rem;color:var(--text3);margin-top:.5rem;line-height:1.7;" id="sol-desc">ليس ERP ولا نظام محاسبة — بل طبقة تنسيق ذكية تجلس بين أنظمتك القائمة وتُوحّد رؤية فريق المبيعات.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div style="background:var(--card-bg);border:1px solid var(--surface-border);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:.75rem;backdrop-filter:blur(10px);">
+            <span style="font-size:1.2rem;">✅</span>
+            <span style="font-size:.88rem;color:var(--text2);" id="sol1">توحيد بيانات المبيعات من مصدر واحد</span>
+          </div>
+          <div style="background:var(--card-bg);border:1px solid var(--surface-border);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:.75rem;backdrop-filter:blur(10px);">
+            <span style="font-size:1.2rem;">✅</span>
+            <span style="font-size:.88rem;color:var(--text2);" id="sol2">موافقة على عروض الأسعار في دقائق</span>
+          </div>
+          <div style="background:var(--card-bg);border:1px solid var(--surface-border);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:.75rem;backdrop-filter:blur(10px);">
+            <span style="font-size:1.2rem;">✅</span>
+            <span style="font-size:.88rem;color:var(--text2);" id="sol3">مؤشرات أداء KPI لكل مندوب وقسم</span>
+          </div>
+          <div style="background:var(--card-bg);border:1px solid var(--surface-border);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:.75rem;backdrop-filter:blur(10px);">
+            <span style="font-size:1.2rem;">✅</span>
+            <span style="font-size:.88rem;color:var(--text2);" id="sol4">تكامل API مع أنظمتك القائمة</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how-bg" id="how">
+  <div class="section-inner section-centered">
+    <span class="section-tag" id="how-tag">آلية العمل</span>
+    <h2 class="section-title" id="how-title">أدوار: الحلقة الوسيطة الذكية</h2>
+    <p class="section-sub" id="how-sub">أدوار لا يستبدل أنظمتك — بل يُنسّق بينها ويمنح فريق مبيعاتك رؤية موحّدة وأدوات محترفة.</p>
+    <div class="flow-diagram">
+      <div class="flow-box">
+        <div class="flow-icon">🧾</div>
+        <div class="flow-title" id="flow1-title">نظام المحاسبة</div>
+        <div class="flow-sub" id="flow1-sub">Odoo · QuickBooks · ERP</div>
+      </div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-box highlight">
+        <div class="flow-icon">⚡</div>
+        <div class="flow-title" id="flow2-title">أدوار</div>
+        <div class="flow-sub" id="flow2-sub">طبقة تنسيق المبيعات</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">
+        <div class="flow-icon">🏭</div>
+        <div class="flow-title" id="flow3-title">نظام المستودع</div>
+        <div class="flow-sub" id="flow3-sub">WMS · نظام المخزون</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:2rem;">
+      <div class="feature-card" style="border-radius:14px;">
+        <div class="feature-body">
+          <div class="feature-icon">1️⃣</div>
+          <div class="feature-title" id="step1-title">تصل طلبية من عميل</div>
+          <div class="feature-desc" id="step1-desc">المندوب يُدخل العرض في أدوار بضغطة واحدة.</div>
+        </div>
+      </div>
+      <div class="feature-card" style="border-radius:14px;">
+        <div class="feature-body">
+          <div class="feature-icon">2️⃣</div>
+          <div class="feature-title" id="step2-title">موافقة فورية</div>
+          <div class="feature-desc" id="step2-desc">المدير يوافق على العرض من هاتفه في دقائق.</div>
+        </div>
+      </div>
+      <div class="feature-card" style="border-radius:14px;">
+        <div class="feature-body">
+          <div class="feature-icon">3️⃣</div>
+          <div class="feature-title" id="step3-title">إرسال تلقائي للمستودع</div>
+          <div class="feature-desc" id="step3-desc">أدوار يُرسل أمر التوريد للمستودع عبر API تلقائياً.</div>
+        </div>
+      </div>
+      <div class="feature-card" style="border-radius:14px;">
+        <div class="feature-body">
+          <div class="feature-icon">4️⃣</div>
+          <div class="feature-title" id="step4-title">تحديث المحاسبة</div>
+          <div class="feature-desc" id="step4-desc">الفاتورة تُنشأ تلقائياً في نظامك المحاسبي دون تدخّل يدوي.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
