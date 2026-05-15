@@ -194,7 +194,7 @@ footer{background:var(--footer-bg);color:var(--footer-text);padding:4rem 2rem 2r
 <nav id="top">
   <a href="#top" class="nav-logo">
     <img src="https://demo.adwaros.com/images/logo.png" alt="Adwar Logo">
-    <span class="nav-logo-text" id="nav-brand">أدوار</span>
+    
   </a>
   <ul class="nav-links">
     <li><a href="#features" id="nl-features">الميزات</a></li>
@@ -694,12 +694,12 @@ function toggleTheme() {
   const html = document.documentElement;
   const isDark = html.getAttribute('data-theme') === 'dark';
   html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-  document.getElementById('theme-btn').textContent = isDark ? '🌙' : '☀️';
+  document.getElementById('theme-btn').textContent = isDark ? '☀️' : '🌙';
 }
 
 // =========== LANGUAGE TOGGLE ===========
 const AR = {
-  'nav-brand':'أدوار','nl-features':'الميزات','nl-how':'كيف يعمل','nl-pricing':'الأسعار',
+  'nl-features':'الميزات','nl-how':'كيف يعمل','nl-pricing':'الأسعار',
   'nl-faq':'الأسئلة الشائعة','nl-contact':'تواصل معنا','nav-cta':'احجز عرضاً تجريبياً',
   'badge-txt':'منصة تنسيق المبيعات B2B — شركة أدوار التقنية',
   'h1-line1':'طوّر مبيعات الجملة مع','h1-brand':'أدوار: تنظيم. أداء. قياس.',
@@ -774,7 +774,7 @@ const AR = {
 };
 
 const EN = {
-  'nav-brand':'Adwar','nl-features':'Features','nl-how':'How It Works','nl-pricing':'Pricing',
+  'nl-features':'Features','nl-how':'How It Works','nl-pricing':'Pricing',
   'nl-faq':'FAQ','nl-contact':'Contact','nav-cta':'Book a Demo',
   'badge-txt':'B2B Wholesale Sales Platform — Adwar Technology Company',
   'h1-line1':'Transform Wholesale Sales with','h1-brand':'Adwar: Organize. Perform. Measure.',
