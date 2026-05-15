@@ -205,7 +205,7 @@ footer{background:var(--footer-bg);color:var(--footer-text);padding:4rem 2rem 2r
   </ul>
   <div class="nav-actions">
     <button class="btn-lang" onclick="toggleLang()" id="lang-btn">EN</button>
-    <button class="btn-theme" onclick="toggleTheme()" id="theme-btn">🌙</button>
+    <button class="btn-theme" onclick="toggleTheme()" id="theme-btn">☀️</button>
     <a href="mailto:karimkatabi@gmail.com?subject=طلب عرض تجريبي - أدوار" class="btn-cta-nav" id="nav-cta">احجز عرضاً تجريبياً</a>
   </div>
 </nav>
@@ -694,7 +694,7 @@ function toggleTheme() {
   const html = document.documentElement;
   const isDark = html.getAttribute('data-theme') === 'dark';
   html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-  document.getElementById('theme-btn').textContent = isDark ? '☀️' : '🌙';
+  document.getElementById('theme-btn').textContent = isDark ? '🌙' : '☀️';
 }
 
 // =========== LANGUAGE TOGGLE ===========
