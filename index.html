@@ -1190,11 +1190,9 @@
                 setLanguage(currentLang === 'ar' ? 'en' : 'ar');
             });
 
-            // Initialize Language
-            try {
-                const savedLang = localStorage.getItem('adwar_lang');
-                if (savedLang === 'en' || savedLang === 'ar') setLanguage(savedLang);
-            } catch(e) {}
+                        // Initialize Language - default Arabic
+            setLanguage('ar');
+            try { localStorage.setItem('adwar_lang', 'ar'); } catch(e) {}
 
             // --- Theme Toggle ---
             function setTheme(theme) {
@@ -1208,13 +1206,9 @@
                 setTheme(currentTheme === 'light' ? 'dark' : 'light');
             });
 
-            // Initialize Theme
-            try {
-                const savedTheme = localStorage.getItem('adwar_theme');
-                if (savedTheme) setTheme(savedTheme);
-                else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
-            } catch(e) {}
-
+                        // Initialize Theme - default light
+            setTheme('light');
+            try { localStorage.setItem('adwar_theme', 'light'); } catch(e) {}
             // --- Mobile Menu ---
             mobileMenuBtn.addEventListener('click', function(e) {
                 e.preventDefault();
