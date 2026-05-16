@@ -8,504 +8,323 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #ffffff;
-  --bg2: #f7f8fa;
-  --bg3: #eef0f4;
-  --navy: #0A1628;
-  --navy2: #1a2d4a;
-  --navy3: #233d63;
-  --blue: #2563eb;
-  --blue-light: #3b82f6;
-  --text: #0A1628;
-  --text2: #374151;
-  --text3: #6b7280;
-  --border: #e5e7eb;
-  --card: #ffffff;
-  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
-  --radius: 12px;
-  --radius-lg: 20px;
+  --bg:#ffffff; --bg2:#f7f8fa; --bg3:#eef0f4;
+  --navy:#0A1628; --navy2:#1a2d4a; --navy3:#233d63;
+  --blue:#2563eb; --blue-light:#3b82f6;
+  --text:#0A1628; --text2:#374151; --text3:#6b7280;
+  --border:#e5e7eb; --card:#ffffff;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 16px rgba(0,0,0,.06);
+  --shadow-lg:0 8px 32px rgba(0,0,0,.12);
+  --radius:12px; --radius-lg:20px;
 }
 [data-theme="dark"] {
-  --bg: #0A1628;
-  --bg2: #0f1f38;
-  --bg3: #162440;
-  --navy: #e8edf5;
-  --navy2: #c5d0e0;
-  --navy3: #94a3b8;
-  --blue: #3b82f6;
-  --blue-light: #60a5fa;
-  --text: #f0f4ff;
-  --text2: #cbd5e1;
-  --text3: #8899aa;
-  --border: #1e3a5f;
-  --card: #0f1f38;
-  --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.2);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,0.4);
+  --bg:#0A1628; --bg2:#0f1f38; --bg3:#162440;
+  --navy:#e8edf5; --navy2:#c5d0e0; --navy3:#94a3b8;
+  --blue:#3b82f6; --blue-light:#60a5fa;
+  --text:#f0f4ff; --text2:#cbd5e1; --text3:#8899aa;
+  --border:#1e3a5f; --card:#0f1f38;
+  --shadow:0 1px 3px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.2);
+  --shadow-lg:0 8px 32px rgba(0,0,0,.4);
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body {
-  font-family: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  transition: background 0.3s, color 0.3s;
-  overflow-x: hidden;
-}
-[lang="en"] body, [lang="en"] * { font-family: 'Inter', 'IBM Plex Sans Arabic', sans-serif; }
-a { color: inherit; text-decoration: none; }
-img { max-width: 100%; }
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'IBM Plex Sans Arabic','Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .3s,color .3s;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;}
 
 /* NAVBAR */
-.navbar {
-  position: fixed; top:0; left:0; right:0; z-index:1000;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
-  transition: background 0.3s, border-color 0.3s;
-}
-[data-theme="dark"] .navbar {
-  background: rgba(10,22,40,0.95);
-}
-.nav-inner {
-  max-width: 1280px; margin: 0 auto;
-  padding: 0 24px;
-  height: 64px;
-  display: flex; align-items: center; gap: 32px;
-}
-.nav-logo { display:flex; align-items:center; cursor:pointer; flex-shrink:0; }
-.nav-logo img { height: 36px; width: auto; object-fit: contain; }
-.nav-links { display:flex; gap:4px; align-items:center; flex:1; justify-content:center; }
-.nav-links a {
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-size: 14px; font-weight: 500;
-  color: var(--text2);
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-.nav-links a:hover { background: var(--bg2); color: var(--text); }
-.nav-actions { display:flex; align-items:center; gap:8px; flex-shrink:0; }
-.btn-toggle {
-  border: 1px solid var(--border); background: var(--bg2);
-  color: var(--text); padding: 6px 12px; border-radius: 8px;
-  font-size: 13px; font-weight: 500; cursor: pointer;
-  transition: all 0.2s; white-space: nowrap;
-}
-.btn-toggle:hover { background: var(--bg3); }
-.btn-primary {
-  background: var(--navy); color: #fff;
-  padding: 8px 20px; border-radius: 8px;
-  font-size: 14px; font-weight: 600; cursor: pointer;
-  border: none; transition: all 0.2s; white-space: nowrap;
-}
-.btn-primary:hover { background: var(--navy2); transform: translateY(-1px); }
-[data-theme="dark"] .btn-primary { background: var(--blue); }
-[data-theme="dark"] .btn-primary:hover { background: var(--blue-light); }
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);transition:background .3s,border-color .3s;}
+[data-theme="dark"] .navbar{background:rgba(10,22,40,.95);}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:24px;}
+.nav-logo{display:flex;align-items:center;cursor:pointer;flex-shrink:0;}
+.nav-logo svg{height:36px;width:auto;}
+.nav-links{display:flex;gap:2px;align-items:center;flex:1;justify-content:center;}
+.nav-links a{padding:7px 12px;border-radius:8px;font-size:13px;font-weight:500;color:var(--text2);transition:all .2s;white-space:nowrap;}
+.nav-links a:hover{background:var(--bg2);color:var(--text);}
+.nav-actions{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.btn-toggle{border:1px solid var(--border);background:var(--bg2);color:var(--text);padding:6px 12px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.btn-toggle:hover{background:var(--bg3);}
+.btn-primary{background:var(--navy);color:#fff;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all .2s;white-space:nowrap;}
+.btn-primary:hover{background:var(--navy2);transform:translateY(-1px);}
+[data-theme="dark"] .btn-primary{background:var(--blue);}
+
+/* LOGO SVG COLORS */
+[data-theme="dark"] .logo-svg-path{stroke:#e8edf5 !important;}
+[data-theme="dark"] .logo-svg-text{fill:#e8edf5 !important;}
 
 /* HERO */
-.hero {
-  padding: 120px 24px 80px;
-  max-width: 1280px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
-}
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: #eff6ff; border: 1px solid #bfdbfe;
-  color: #1d4ed8; padding: 6px 14px; border-radius: 100px;
-  font-size: 13px; font-weight: 600; margin-bottom: 20px;
-}
-[data-theme="dark"] .hero-badge { background: #1e3a5f; border-color: #2563eb; color: #93c5fd; }
-.hero h1 {
-  font-size: 56px; font-weight: 800; line-height: 1.15;
-  color: var(--text); margin-bottom: 20px; letter-spacing: -1px;
-}
-.hero h1 .highlight { color: var(--blue); }
-.hero p {
-  font-size: 18px; color: var(--text2); line-height: 1.7;
-  margin-bottom: 32px; max-width: 480px;
-}
-.hero-checks { display:flex; flex-direction:column; gap:10px; margin-bottom:36px; }
-.hero-check { display:flex; align-items:center; gap:10px; font-size:15px; font-weight:500; color:var(--text2); }
-.hero-check .chk { width:20px; height:20px; background:#0A1628; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-[data-theme="dark"] .hero-check .chk { background: var(--blue); }
-.hero-check .chk svg { width:11px; height:11px; }
-.hero-btns { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
-.btn-hero-primary {
-  background: #0A1628; color: #fff;
-  padding: 14px 28px; border-radius: 10px;
-  font-size: 16px; font-weight: 700; cursor: pointer;
-  border: none; transition: all 0.2s; display:inline-flex; align-items:center; gap:8px;
-}
-.btn-hero-primary:hover { background: #162240; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(10,22,40,0.25); }
-[data-theme="dark"] .btn-hero-primary { background: var(--blue); }
-.btn-hero-secondary {
-  background: transparent; color: var(--text);
-  padding: 14px 24px; border-radius: 10px;
-  font-size: 16px; font-weight: 600; cursor: pointer;
-  border: 2px solid var(--border); transition: all 0.2s;
-  display: inline-flex; align-items:center; gap:8px;
-}
-.btn-hero-secondary:hover { border-color: var(--navy3); background: var(--bg2); }
-.hero-note { font-size:13px; color:var(--text3); margin-top:12px; }
+.hero{padding:120px 24px 80px;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8;padding:6px 14px;border-radius:100px;font-size:13px;font-weight:600;margin-bottom:20px;}
+[data-theme="dark"] .hero-badge{background:#1e3a5f;border-color:#2563eb;color:#93c5fd;}
+.hero h1{font-size:54px;font-weight:800;line-height:1.15;color:var(--text);margin-bottom:20px;letter-spacing:-1px;}
+.hero h1 .highlight{color:var(--blue);}
+.hero p{font-size:17px;color:var(--text2);line-height:1.7;margin-bottom:32px;max-width:480px;}
+.hero-checks{display:flex;flex-direction:column;gap:10px;margin-bottom:36px;}
+.hero-check{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:var(--text2);}
+.hero-check .chk{width:20px;height:20px;background:#0A1628;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+[data-theme="dark"] .hero-check .chk{background:var(--blue);}
+.hero-check .chk svg{width:11px;height:11px;}
+.hero-btns{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+.btn-hero-primary{background:#0A1628;color:#fff;padding:14px 28px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;border:none;transition:all .2s;display:inline-flex;align-items:center;gap:8px;}
+.btn-hero-primary:hover{background:#162240;transform:translateY(-2px);box-shadow:0 8px 24px rgba(10,22,40,.25);}
+[data-theme="dark"] .btn-hero-primary{background:var(--blue);}
+.btn-hero-secondary{background:transparent;color:var(--text);padding:14px 24px;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;border:2px solid var(--border);transition:all .2s;display:inline-flex;align-items:center;gap:8px;}
+.btn-hero-secondary:hover{border-color:var(--navy3);background:var(--bg2);}
+.hero-note{font-size:13px;color:var(--text3);margin-top:12px;}
 
 /* DASHBOARD MOCKUP */
-.hero-visual { position: relative; }
-.dashboard-wrap {
-  background: var(--bg2); border-radius: 16px; overflow:hidden;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-lg);
-  padding: 0;
-}
-.dash-topbar {
-  background: var(--card); border-bottom: 1px solid var(--border);
-  padding: 12px 16px; display:flex; align-items:center; gap:8px;
-}
-.dash-dots { display:flex; gap:5px; }
-.dash-dot { width:10px; height:10px; border-radius:50%; }
-.dash-dot:nth-child(1) { background:#ff5f57; }
-.dash-dot:nth-child(2) { background:#febc2e; }
-.dash-dot:nth-child(3) { background:#28c840; }
-.dash-title { font-size:12px; font-weight:600; color:var(--text3); margin-right:auto; }
-.dash-body { display:flex; height:380px; }
-.dash-sidebar {
-  width: 160px; background: var(--card); border-left:1px solid var(--border);
-  padding: 12px 0; flex-shrink:0;
-}
-[html[dir="ltr"]] .dash-sidebar { border-left:none; border-right:1px solid var(--border); }
-.dash-sidebar-item {
-  padding: 8px 14px; font-size:12px; font-weight:500; color:var(--text3);
-  cursor:default; display:flex; align-items:center; gap:8px;
-  border-radius:6px; margin:2px 6px;
-}
-.dash-sidebar-item.active { background: #eff6ff; color: #1d4ed8; font-weight:600; }
-[data-theme="dark"] .dash-sidebar-item.active { background: #1e3a5f; color: #93c5fd; }
-.dash-sidebar-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
-.dash-main { flex:1; padding:16px; overflow:hidden; }
-.kpi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:12px; }
-.kpi-card {
-  background: var(--bg2); border-radius:10px; padding:10px 12px;
-  border: 1px solid var(--border);
-}
-.kpi-label { font-size:10px; color:var(--text3); margin-bottom:3px; font-weight:500; }
-.kpi-value { font-size:17px; font-weight:800; color:var(--text); }
-.kpi-sub { font-size:10px; color:#10b981; margin-top:2px; font-weight:600; }
-.chart-area { background:var(--bg2); border-radius:10px; padding:10px; border:1px solid var(--border); margin-bottom:10px; }
-.chart-label { font-size:10px; font-weight:600; color:var(--text2); margin-bottom:8px; }
-.bars { display:flex; align-items:flex-end; gap:6px; height:80px; }
-.bar { flex:1; border-radius:4px 4px 0 0; transition:height 0.3s; }
-.order-list { display:flex; flex-direction:column; gap:6px; }
-.order-row {
-  background:var(--card); border:1px solid var(--border); border-radius:8px;
-  padding:8px 10px; display:flex; align-items:center; gap:8px; font-size:11px;
-}
-.order-status {
-  padding:2px 7px; border-radius:100px; font-size:10px; font-weight:600; white-space:nowrap;
-}
-.status-done { background:#d1fae5; color:#065f46; }
-.status-prog { background:#dbeafe; color:#1e40af; }
-.status-wait { background:#fef3c7; color:#92400e; }
-[data-theme="dark"] .status-done { background:#064e3b; color:#6ee7b7; }
-[data-theme="dark"] .status-prog { background:#1e3a5f; color:#93c5fd; }
-[data-theme="dark"] .status-wait { background:#451a03; color:#fcd34d; }
-.order-amount { font-weight:700; color:var(--text); margin-right:auto; font-size:12px; }
+.dashboard-wrap{background:var(--bg2);border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-lg);}
+.dash-topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;gap:8px;}
+.dash-dots{display:flex;gap:5px;}
+.dash-dot{width:10px;height:10px;border-radius:50%;}
+.dash-dot:nth-child(1){background:#ff5f57;}
+.dash-dot:nth-child(2){background:#febc2e;}
+.dash-dot:nth-child(3){background:#28c840;}
+.dash-title{font-size:12px;font-weight:600;color:var(--text3);margin-right:auto;}
+.dash-body{display:flex;height:380px;}
+.dash-sidebar{width:155px;background:var(--card);border-left:1px solid var(--border);padding:12px 0;flex-shrink:0;}
+[dir="ltr"] .dash-sidebar{border-left:none;border-right:1px solid var(--border);}
+.dash-sidebar-item{padding:8px 14px;font-size:12px;font-weight:500;color:var(--text3);cursor:default;display:flex;align-items:center;gap:8px;border-radius:6px;margin:2px 6px;}
+.dash-sidebar-item.active{background:#eff6ff;color:#1d4ed8;font-weight:600;}
+[data-theme="dark"] .dash-sidebar-item.active{background:#1e3a5f;color:#93c5fd;}
+.dash-sidebar-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.dash-main{flex:1;padding:16px;overflow:hidden;}
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px;}
+.kpi-card{background:var(--bg2);border-radius:10px;padding:10px 12px;border:1px solid var(--border);}
+.kpi-label{font-size:10px;color:var(--text3);margin-bottom:3px;font-weight:500;}
+.kpi-value{font-size:17px;font-weight:800;color:var(--text);}
+.kpi-sub{font-size:10px;color:#10b981;margin-top:2px;font-weight:600;}
+.chart-area{background:var(--bg2);border-radius:10px;padding:10px;border:1px solid var(--border);margin-bottom:10px;}
+.chart-label{font-size:10px;font-weight:600;color:var(--text2);margin-bottom:8px;}
+.bars{display:flex;align-items:flex-end;gap:6px;height:80px;}
+.bar{flex:1;border-radius:4px 4px 0 0;}
+.order-list{display:flex;flex-direction:column;gap:6px;}
+.order-row{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 10px;display:flex;align-items:center;gap:8px;font-size:11px;}
+.order-status{padding:2px 7px;border-radius:100px;font-size:10px;font-weight:600;white-space:nowrap;}
+.status-done{background:#d1fae5;color:#065f46;}
+.status-prog{background:#dbeafe;color:#1e40af;}
+.status-wait{background:#fef3c7;color:#92400e;}
+[data-theme="dark"] .status-done{background:#064e3b;color:#6ee7b7;}
+[data-theme="dark"] .status-prog{background:#1e3a5f;color:#93c5fd;}
+[data-theme="dark"] .status-wait{background:#451a03;color:#fcd34d;}
+.order-amount{font-weight:700;color:var(--text);margin-right:auto;font-size:12px;}
+[dir="ltr"] .order-amount{margin-right:0;margin-left:auto;}
 
 /* LOGOS BAR */
-.logos-bar {
-  background: var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);
-  padding: 32px 24px;
-}
-.logos-inner { max-width:1280px; margin:0 auto; }
-.logos-label { text-align:center; font-size:13px; font-weight:600; color:var(--text3); text-transform:uppercase; letter-spacing:1px; margin-bottom:28px; }
-.logos-grid { display:flex; align-items:center; justify-content:center; gap:48px; flex-wrap:wrap; }
-.logo-item { opacity:0.6; transition:opacity 0.2s; filter:grayscale(100%); }
-.logo-item:hover { opacity:1; filter:none; }
-.logo-item img { height:32px; width:auto; object-fit:contain; }
-.logo-text {
-  font-size: 18px; font-weight:800; color:var(--text3);
-  letter-spacing:-0.5px;
-}
+.logos-bar{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:32px 24px;}
+.logos-inner{max-width:1280px;margin:0 auto;}
+.logos-label{text-align:center;font-size:13px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:28px;}
+.logos-grid{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;}
+.logo-item{opacity:.55;transition:opacity .2s,filter .2s;filter:grayscale(100%);}
+.logo-item:hover{opacity:1;filter:none;}
+.logo-item img{height:36px;width:auto;object-fit:contain;}
+.logo-text{font-size:16px;font-weight:800;color:var(--text3);letter-spacing:-.5px;}
 
-/* PROBLEM SECTION */
-.section { padding: 96px 24px; }
-.section-inner { max-width:1280px; margin:0 auto; }
-.section-tag {
-  display:inline-block; background:#eff6ff; color:#1d4ed8;
-  border:1px solid #bfdbfe; padding:5px 14px; border-radius:100px;
-  font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px;
-  margin-bottom:16px;
-}
-[data-theme="dark"] .section-tag { background:#1e3a5f; color:#93c5fd; border-color:#2563eb; }
-.section-title {
-  font-size:40px; font-weight:800; line-height:1.2;
-  margin-bottom:16px; letter-spacing:-0.5px;
-}
-.section-subtitle { font-size:18px; color:var(--text2); max-width:600px; line-height:1.7; }
+/* SECTION */
+.section{padding:96px 24px;}
+.section-inner{max-width:1280px;margin:0 auto;}
+.section-tag{display:inline-block;background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;padding:5px 14px;border-radius:100px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;}
+[data-theme="dark"] .section-tag{background:#1e3a5f;color:#93c5fd;border-color:#2563eb;}
+.section-title{font-size:38px;font-weight:800;line-height:1.2;margin-bottom:16px;letter-spacing:-.5px;}
+.section-subtitle{font-size:17px;color:var(--text2);max-width:600px;line-height:1.7;}
 
 /* PROBLEM CARDS */
-.problem-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
-.problem-card {
-  background: var(--card); border-radius:var(--radius-lg);
-  padding:28px; border:1px solid var(--border);
-  box-shadow: var(--shadow);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.problem-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
-.problem-icon { width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; margin-bottom:16px; }
-.problem-card h3 { font-size:18px; font-weight:700; margin-bottom:10px; }
-.problem-card p { font-size:14px; color:var(--text2); line-height:1.7; }
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
+.problem-card{background:var(--card);border-radius:var(--radius-lg);padding:28px;border:1px solid var(--border);box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;}
+.problem-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.problem-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;}
+.problem-card h3{font-size:18px;font-weight:700;margin-bottom:10px;}
+.problem-card p{font-size:14px;color:var(--text2);line-height:1.7;}
 
 /* FEATURES */
-.features-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:48px; }
-.feature-card {
-  background:var(--card); border-radius:var(--radius-lg);
-  border:1px solid var(--border); box-shadow:var(--shadow);
-  overflow:hidden; transition:transform 0.2s, box-shadow 0.2s;
-}
-.feature-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
-.feature-card-content { padding:28px; }
-.feature-card-content h3 { font-size:20px; font-weight:700; margin-bottom:10px; }
-.feature-card-content p { font-size:14px; color:var(--text2); line-height:1.7; margin-bottom:16px; }
-.feature-card-visual { background:var(--bg2); border-top:1px solid var(--border); padding:20px; }
-.feature-tag {
-  display:inline-block; background:#0A1628; color:#fff;
-  padding:3px 10px; border-radius:6px; font-size:11px; font-weight:600; margin-bottom:10px;
-}
-[data-theme="dark"] .feature-tag { background:var(--blue); }
-.mini-table { width:100%; border-collapse:collapse; font-size:12px; }
-.mini-table th { background:var(--bg3); padding:6px 10px; text-align:right; font-weight:600; color:var(--text3); }
-.mini-table td { padding:6px 10px; border-top:1px solid var(--border); color:var(--text2); }
-.mini-table tr:hover td { background:var(--bg3); }
-[html[dir="ltr"]] .mini-table th { text-align:left; }
+.features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:32px;}
+.feature-card{background:var(--card);border-radius:var(--radius-lg);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;transition:transform .2s,box-shadow .2s;}
+.feature-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.feature-card-content{padding:28px;}
+.feature-card-content h3{font-size:20px;font-weight:700;margin-bottom:10px;}
+.feature-card-content p{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:16px;}
+.feature-card-visual{background:var(--bg2);border-top:1px solid var(--border);padding:20px;}
+.feature-tag{display:inline-block;background:#0A1628;color:#fff;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:600;margin-bottom:10px;}
+[data-theme="dark"] .feature-tag{background:var(--blue);}
+.mini-table{width:100%;border-collapse:collapse;font-size:12px;}
+.mini-table th{background:var(--bg3);padding:6px 10px;text-align:right;font-weight:600;color:var(--text3);}
+.mini-table td{padding:6px 10px;border-top:1px solid var(--border);color:var(--text2);}
+.mini-table tr:hover td{background:var(--bg3);}
+[dir="ltr"] .mini-table th{text-align:left;}
+
+/* COMING SOON */
+.coming-soon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
+.cs-card{background:var(--card);border-radius:var(--radius-lg);padding:28px;border:1px solid var(--border);box-shadow:var(--shadow);position:relative;overflow:hidden;}
+.cs-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#3b82f6,#8b5cf6);}
+.cs-badge{display:inline-flex;align-items:center;gap:6px;background:#f5f3ff;border:1px solid #ddd6fe;color:#7c3aed;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:700;margin-bottom:14px;}
+[data-theme="dark"] .cs-badge{background:#2e1065;border-color:#5b21b6;color:#c4b5fd;}
+.cs-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px;}
+.cs-card h3{font-size:17px;font-weight:700;margin-bottom:8px;}
+.cs-card p{font-size:13px;color:var(--text2);line-height:1.7;}
 
 /* HOW IT WORKS */
-.how-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:48px; position:relative; }
-.how-step {
-  background:var(--card); border-radius:var(--radius-lg);
-  padding:28px 20px; border:1px solid var(--border);
-  box-shadow:var(--shadow); text-align:center; position:relative;
-}
-.how-num {
-  width:44px; height:44px; border-radius:12px;
-  background:#0A1628; color:#fff;
-  display:flex; align-items:center; justify-content:center;
-  font-size:18px; font-weight:800; margin:0 auto 16px;
-}
-[data-theme="dark"] .how-num { background:var(--blue); }
-.how-step h3 { font-size:16px; font-weight:700; margin-bottom:8px; }
-.how-step p { font-size:13px; color:var(--text2); line-height:1.7; }
-.how-arrow {
-  position:absolute; top:50%; left:-12px; transform:translateY(-50%);
-  width:24px; height:24px; background:var(--bg2);
-  border:1px solid var(--border); border-radius:50%;
-  display:flex; align-items:center; justify-content:center; font-size:12px; z-index:1;
-}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px;}
+.how-step{background:var(--card);border-radius:var(--radius-lg);padding:28px 20px;border:1px solid var(--border);box-shadow:var(--shadow);text-align:center;}
+.how-num{width:44px;height:44px;border-radius:12px;background:#0A1628;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;margin:0 auto 16px;}
+[data-theme="dark"] .how-num{background:var(--blue);}
+.how-step h3{font-size:16px;font-weight:700;margin-bottom:8px;}
+.how-step p{font-size:13px;color:var(--text2);line-height:1.7;}
 
 /* TESTIMONIALS */
-.testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
-.testimonial-card {
-  background:var(--card); border-radius:var(--radius-lg);
-  padding:28px; border:1px solid var(--border); box-shadow:var(--shadow);
-  transition:transform 0.2s;
-}
-.testimonial-card:hover { transform:translateY(-3px); }
-.stars { color:#f59e0b; font-size:16px; margin-bottom:14px; }
-.testimonial-text { font-size:15px; color:var(--text2); line-height:1.8; margin-bottom:20px; font-style:italic; }
-.testimonial-author { display:flex; align-items:center; gap:12px; }
-.author-avatar { width:44px; height:44px; border-radius:50%; object-fit:cover; flex-shrink:0; }
-.author-info .name { font-size:14px; font-weight:700; color:var(--text); }
-.author-info .role { font-size:12px; color:var(--text3); }
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
+.testimonial-card{background:var(--card);border-radius:var(--radius-lg);padding:28px;border:1px solid var(--border);box-shadow:var(--shadow);transition:transform .2s;}
+.testimonial-card:hover{transform:translateY(-3px);}
+.stars{color:#f59e0b;font-size:16px;margin-bottom:14px;}
+.testimonial-text{font-size:15px;color:var(--text2);line-height:1.8;margin-bottom:20px;font-style:italic;}
+.testimonial-author{display:flex;align-items:center;gap:12px;}
+.author-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;}
+.author-info .name{font-size:14px;font-weight:700;color:var(--text);}
+.author-info .role{font-size:12px;color:var(--text3);}
 
 /* PRICING */
-.pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
-.pricing-card {
-  background:var(--card); border-radius:var(--radius-lg);
-  padding:32px; border:1px solid var(--border); box-shadow:var(--shadow);
-  transition:transform 0.2s;
-}
-.pricing-card.featured {
-  background:#0A1628; color:#fff; border-color:#0A1628;
-  transform:scale(1.04); box-shadow:var(--shadow-lg);
-}
-[data-theme="dark"] .pricing-card.featured { background:#1a3a6e; border-color:#2563eb; }
-.pricing-card.featured .pricing-price { color:#fff; }
-.pricing-card.featured .pricing-desc { color:#94a3b8; }
-.pricing-card.featured .pricing-feature { color:#e2e8f0; }
-.pricing-badge {
-  display:inline-block; background:#3b82f6; color:#fff;
-  padding:3px 10px; border-radius:6px; font-size:11px; font-weight:700;
-  margin-bottom:16px;
-}
-.pricing-name { font-size:20px; font-weight:800; margin-bottom:8px; }
-.pricing-price { font-size:40px; font-weight:900; letter-spacing:-1px; margin-bottom:4px; }
-.pricing-price span { font-size:16px; font-weight:500; color:var(--text3); }
-.pricing-card.featured .pricing-price span { color:#94a3b8; }
-.pricing-desc { font-size:13px; color:var(--text3); margin-bottom:24px; }
-.pricing-features { display:flex; flex-direction:column; gap:10px; margin-bottom:28px; }
-.pricing-feature { display:flex; align-items:center; gap:10px; font-size:14px; }
-.pricing-chk { width:18px; height:18px; background:#10b981; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.pricing-card.featured .pricing-chk { background:#3b82f6; }
-.pricing-chk svg { width:10px; height:10px; }
-.btn-plan {
-  width:100%; padding:12px; border-radius:10px;
-  font-size:15px; font-weight:700; cursor:pointer; border:none;
-  background:var(--bg2); color:var(--text); transition:all 0.2s;
-}
-.btn-plan:hover { background:var(--bg3); }
-.pricing-card.featured .btn-plan {
-  background:#3b82f6; color:#fff;
-}
-.pricing-card.featured .btn-plan:hover { background:#2563eb; }
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
+.pricing-card{background:var(--card);border-radius:var(--radius-lg);padding:32px;border:1px solid var(--border);box-shadow:var(--shadow);transition:transform .2s;}
+.pricing-card.featured{background:#0A1628;color:#fff;border-color:#0A1628;transform:scale(1.04);box-shadow:var(--shadow-lg);}
+[data-theme="dark"] .pricing-card.featured{background:#1a3a6e;border-color:#2563eb;}
+.pricing-card.featured .pricing-price,.pricing-card.featured .pricing-name{color:#fff;}
+.pricing-card.featured .pricing-desc,.pricing-card.featured .pricing-feature{color:#94a3b8;}
+.pricing-badge{display:inline-block;background:#3b82f6;color:#fff;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700;margin-bottom:16px;}
+.pricing-name{font-size:20px;font-weight:800;margin-bottom:8px;}
+.pricing-price{font-size:40px;font-weight:900;letter-spacing:-1px;margin-bottom:4px;}
+.pricing-price span{font-size:16px;font-weight:500;color:var(--text3);}
+.pricing-card.featured .pricing-price span{color:#94a3b8;}
+.pricing-desc{font-size:13px;color:var(--text3);margin-bottom:24px;}
+.pricing-features{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+.pricing-feature{display:flex;align-items:center;gap:10px;font-size:14px;}
+.pricing-chk{width:18px;height:18px;background:#10b981;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pricing-card.featured .pricing-chk{background:#3b82f6;}
+.pricing-chk svg{width:10px;height:10px;}
+.btn-plan{width:100%;padding:12px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;border:none;background:var(--bg2);color:var(--text);transition:all .2s;}
+.btn-plan:hover{background:var(--bg3);}
+.pricing-card.featured .btn-plan{background:#3b82f6;color:#fff;}
+.pricing-card.featured .btn-plan:hover{background:#2563eb;}
 
 /* FAQ */
-.faq-list { max-width:800px; margin:48px auto 0; display:flex; flex-direction:column; gap:12px; }
-.faq-item {
-  background:var(--card); border-radius:var(--radius);
-  border:1px solid var(--border); overflow:hidden;
-}
-.faq-q {
-  padding:18px 20px; font-size:16px; font-weight:600;
-  cursor:pointer; display:flex; justify-content:space-between; align-items:center;
-  user-select:none;
-}
-.faq-q:hover { background:var(--bg2); }
-.faq-q .faq-icon { color:var(--text3); font-size:18px; transition:transform 0.3s; flex-shrink:0; }
-.faq-item.open .faq-icon { transform:rotate(45deg); }
-.faq-a { padding:0 20px; max-height:0; overflow:hidden; transition:max-height 0.3s ease, padding 0.3s; font-size:14px; color:var(--text2); line-height:1.8; }
-.faq-item.open .faq-a { padding:0 20px 18px; max-height:300px; }
+.faq-list{max-width:800px;margin:48px auto 0;display:flex;flex-direction:column;gap:12px;}
+.faq-item{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;}
+.faq-q{padding:18px 20px;font-size:16px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;}
+.faq-q:hover{background:var(--bg2);}
+.faq-q .faq-icon{color:var(--text3);font-size:18px;transition:transform .3s;flex-shrink:0;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s;font-size:14px;color:var(--text2);line-height:1.8;}
+.faq-item.open .faq-a{padding:0 20px 18px;max-height:300px;}
 
 /* VISION 2030 */
-.vision-section {
-  background: var(--navy);
-  color: #fff; padding: 80px 24px;
-}
-[data-theme="dark"] .vision-section { background: var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-.vision-inner { max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
-.vision-tag { background:#1e3a5f; color:#93c5fd; border:1px solid #2563eb; display:inline-block; padding:5px 14px; border-radius:100px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:16px; }
-[data-theme="dark"] .vision-section .vision-tag { background:#1e3a5f; }
-.vision-section h2 { font-size:36px; font-weight:800; line-height:1.25; margin-bottom:16px; color:#fff; }
-[data-theme="dark"] .vision-section h2 { color:var(--text); }
-.vision-section p { font-size:16px; color:#94a3b8; line-height:1.8; margin-bottom:24px; }
-[data-theme="dark"] .vision-section p { color:var(--text2); }
-.vision-stats { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-.vision-stat { background:#0f2544; border-radius:12px; padding:20px; text-align:center; }
-[data-theme="dark"] .vision-stat { background:var(--bg3); }
-.vision-stat-num { font-size:32px; font-weight:900; color:#3b82f6; }
-.vision-stat-label { font-size:13px; color:#94a3b8; margin-top:4px; }
-[data-theme="dark"] .vision-stat-label { color:var(--text3); }
+.vision-section{background:var(--navy);color:#fff;padding:80px 24px;}
+[data-theme="dark"] .vision-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.vision-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.vision-tag{background:#1e3a5f;color:#93c5fd;border:1px solid #2563eb;display:inline-block;padding:5px 14px;border-radius:100px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;}
+.vision-section h2{font-size:36px;font-weight:800;line-height:1.25;margin-bottom:16px;color:#fff;}
+[data-theme="dark"] .vision-section h2{color:var(--text);}
+.vision-section p{font-size:16px;color:#94a3b8;line-height:1.8;margin-bottom:24px;}
+[data-theme="dark"] .vision-section p{color:var(--text2);}
+.vision-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.vision-stat{background:#0f2544;border-radius:12px;padding:20px;text-align:center;}
+[data-theme="dark"] .vision-stat{background:var(--bg3);}
+.vision-stat-num{font-size:32px;font-weight:900;color:#3b82f6;}
+.vision-stat-label{font-size:13px;color:#94a3b8;margin-top:4px;}
+[data-theme="dark"] .vision-stat-label{color:var(--text3);}
 
 /* CONTACT */
-.contact-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
-.contact-card {
-  background:var(--card); border-radius:var(--radius-lg);
-  padding:28px; border:1px solid var(--border); box-shadow:var(--shadow);
-  text-align:center; transition:transform 0.2s;
-}
-.contact-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
-.contact-icon { width:52px; height:52px; border-radius:14px; background:#eff6ff; display:flex; align-items:center; justify-content:center; font-size:24px; margin:0 auto 14px; }
-[data-theme="dark"] .contact-icon { background:#1e3a5f; }
-.contact-card h3 { font-size:16px; font-weight:700; margin-bottom:6px; }
-.contact-card p { font-size:14px; color:var(--text3); margin-bottom:16px; }
-.contact-card a { color:var(--blue); font-size:15px; font-weight:600; }
-.contact-card a:hover { text-decoration:underline; }
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
+.contact-card{background:var(--card);border-radius:var(--radius-lg);padding:28px;border:1px solid var(--border);box-shadow:var(--shadow);text-align:center;transition:transform .2s;}
+.contact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.contact-icon{width:52px;height:52px;border-radius:14px;background:#eff6ff;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 14px;}
+[data-theme="dark"] .contact-icon{background:#1e3a5f;}
+.contact-card h3{font-size:16px;font-weight:700;margin-bottom:6px;}
+.contact-card p{font-size:14px;color:var(--text3);margin-bottom:16px;}
+.contact-card a{color:var(--blue);font-size:15px;font-weight:600;}
+.contact-card a:hover{text-decoration:underline;}
+/* Fix phone number direction always LTR */
+.phone-num{direction:ltr;unicode-bidi:isolate;display:inline-block;}
 
 /* CTA BANNER */
-.cta-banner {
-  background: linear-gradient(135deg, #0A1628 0%, #1a3a6e 100%);
-  padding: 80px 24px; text-align:center;
-}
-[data-theme="dark"] .cta-banner { background: linear-gradient(135deg, #0f1f38 0%, #162440 100%); }
-.cta-banner h2 { font-size:40px; font-weight:800; color:#fff; margin-bottom:16px; }
-.cta-banner p { font-size:18px; color:#94a3b8; margin-bottom:36px; max-width:600px; margin-left:auto; margin-right:auto; }
-.cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
-.btn-cta-primary { background:#3b82f6; color:#fff; padding:14px 32px; border-radius:10px; font-size:16px; font-weight:700; cursor:pointer; border:none; transition:all 0.2s; }
-.btn-cta-primary:hover { background:#2563eb; transform:translateY(-2px); box-shadow:0 8px 24px rgba(59,130,246,0.4); }
-.btn-cta-secondary { background:transparent; color:#fff; padding:14px 32px; border-radius:10px; font-size:16px; font-weight:600; cursor:pointer; border:2px solid rgba(255,255,255,0.3); transition:all 0.2s; }
-.btn-cta-secondary:hover { border-color:#fff; background:rgba(255,255,255,0.1); }
+.cta-banner{background:linear-gradient(135deg,#0A1628 0%,#1a3a6e 100%);padding:80px 24px;text-align:center;}
+[data-theme="dark"] .cta-banner{background:linear-gradient(135deg,#0f1f38 0%,#162440 100%);}
+.cta-banner h2{font-size:40px;font-weight:800;color:#fff;margin-bottom:16px;}
+.cta-banner p{font-size:18px;color:#94a3b8;margin-bottom:36px;max-width:600px;margin-left:auto;margin-right:auto;}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.btn-cta-primary{background:#3b82f6;color:#fff;padding:14px 32px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;border:none;transition:all .2s;}
+.btn-cta-primary:hover{background:#2563eb;transform:translateY(-2px);box-shadow:0 8px 24px rgba(59,130,246,.4);}
+.btn-cta-secondary{background:transparent;color:#fff;padding:14px 32px;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;border:2px solid rgba(255,255,255,.3);transition:all .2s;}
+.btn-cta-secondary:hover{border-color:#fff;background:rgba(255,255,255,.1);}
 
 /* FOOTER */
-.footer { background:var(--bg2); border-top:1px solid var(--border); padding:48px 24px 24px; }
-.footer-inner { max-width:1280px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:48px; }
-.footer-logo { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
-.footer-logo img { height:32px; width:auto; object-fit:contain; }
-.footer-desc { font-size:14px; color:var(--text3); line-height:1.7; max-width:280px; }
-.footer-col h4 { font-size:14px; font-weight:700; margin-bottom:14px; }
-.footer-col ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
-.footer-col ul li a { font-size:13px; color:var(--text3); transition:color 0.2s; }
-.footer-col ul li a:hover { color:var(--blue); }
-.footer-bottom { max-width:1280px; margin:32px auto 0; padding-top:24px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; font-size:13px; color:var(--text3); flex-wrap:wrap; gap:8px; }
+.footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24px 24px;}
+.footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;}
+.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.footer-logo svg{height:30px;width:auto;}
+.footer-desc{font-size:14px;color:var(--text3);line-height:1.7;max-width:280px;}
+.footer-col h4{font-size:14px;font-weight:700;margin-bottom:14px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col ul li a{font-size:13px;color:var(--text3);transition:color .2s;}
+.footer-col ul li a:hover{color:var(--blue);}
+.footer-bottom{max-width:1280px;margin:32px auto 0;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--text3);flex-wrap:wrap;gap:8px;}
 
 /* TRUST BAR */
-.trust-bar { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:28px 24px; }
-.trust-inner { max-width:1280px; margin:0 auto; display:flex; gap:48px; justify-content:center; flex-wrap:wrap; }
-.trust-item { display:flex; align-items:center; gap:10px; }
-.trust-num { font-size:24px; font-weight:900; color:var(--text); }
-.trust-label { font-size:13px; color:var(--text3); font-weight:500; }
+.trust-bar{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 24px;}
+.trust-inner{max-width:1280px;margin:0 auto;display:flex;gap:48px;justify-content:center;flex-wrap:wrap;}
+.trust-item{display:flex;align-items:center;gap:10px;}
+.trust-num{font-size:24px;font-weight:900;color:var(--text);}
+.trust-label{font-size:13px;color:var(--text3);font-weight:500;}
 
-/* COMPARISON TABLE */
-.comp-table-wrap { margin-top:48px; overflow:hidden; border-radius:var(--radius-lg); border:1px solid var(--border); }
-.comp-table { width:100%; border-collapse:collapse; font-size:14px; }
-.comp-table th { background:var(--bg2); padding:14px 20px; text-align:right; font-weight:700; color:var(--text); border-bottom:1px solid var(--border); }
-.comp-table td { padding:14px 20px; border-top:1px solid var(--border); color:var(--text2); text-align:right; }
-.comp-table tr:hover td { background:var(--bg2); }
-.comp-chk { color:#10b981; font-size:16px; font-weight:700; }
-.comp-x { color:#ef4444; font-size:16px; }
-.comp-table th:first-child, .comp-table td:first-child { color:var(--text); font-weight:600; }
-[html[dir="ltr"]] .comp-table th { text-align:left; }
-[html[dir="ltr"]] .comp-table td { text-align:left; }
+/* COMPARISON */
+.comp-table-wrap{margin-top:48px;overflow:hidden;border-radius:var(--radius-lg);border:1px solid var(--border);}
+.comp-table{width:100%;border-collapse:collapse;font-size:14px;}
+.comp-table th{background:var(--bg2);padding:14px 20px;text-align:right;font-weight:700;color:var(--text);border-bottom:1px solid var(--border);}
+.comp-table td{padding:14px 20px;border-top:1px solid var(--border);color:var(--text2);text-align:right;}
+.comp-table tr:hover td{background:var(--bg2);}
+.comp-chk{color:#10b981;font-size:16px;font-weight:700;}
+.comp-x{color:#ef4444;font-size:16px;}
+.comp-table th:first-child,.comp-table td:first-child{color:var(--text);font-weight:600;}
+[dir="ltr"] .comp-table th,[dir="ltr"] .comp-table td{text-align:left;}
 
 /* TESTED BADGE */
-.tested-badge {
-  display:inline-flex; align-items:center; gap:8px;
-  background:#ecfdf5; border:1px solid #6ee7b7; border-radius:100px;
-  padding:8px 18px; font-size:13px; font-weight:600; color:#065f46;
-  margin:0 auto; display:flex; width:fit-content;
-}
-[data-theme="dark"] .tested-badge { background:#064e3b; border-color:#065f46; color:#6ee7b7; }
-
-/* RESPONSIVE */
-@media (max-width:1024px) {
-  .hero { grid-template-columns:1fr; gap:40px; }
-  .hero h1 { font-size:42px; }
-  .problem-grid, .how-grid { grid-template-columns:repeat(2,1fr); }
-  .features-grid { grid-template-columns:1fr; }
-  .pricing-grid { grid-template-columns:1fr; }
-  .pricing-card.featured { transform:none; }
-  .testimonials-grid { grid-template-columns:1fr; }
-  .vision-inner { grid-template-columns:1fr; gap:32px; }
-  .footer-inner { grid-template-columns:1fr; gap:24px; }
-  .contact-grid { grid-template-columns:1fr; }
-}
-@media (max-width:768px) {
-  .nav-links { display:none; }
-  .hero h1 { font-size:32px; }
-  .section-title { font-size:28px; }
-  .how-grid { grid-template-columns:1fr; }
-  .kpi-grid { grid-template-columns:repeat(2,1fr); }
-  .logos-grid { gap:24px; }
-}
+.tested-badge{display:inline-flex;align-items:center;gap:8px;background:#ecfdf5;border:1px solid #6ee7b7;border-radius:100px;padding:8px 18px;font-size:13px;font-weight:600;color:#065f46;margin:0 auto;}
+[data-theme="dark"] .tested-badge{background:#064e3b;border-color:#065f46;color:#6ee7b7;}
 
 /* WHATSAPP FLOAT */
-.wa-float {
-  position:fixed; bottom:24px; right:24px; z-index:999;
-  width:56px; height:56px; border-radius:50%;
-  background:#25D366; display:flex; align-items:center; justify-content:center;
-  box-shadow:0 4px 16px rgba(37,211,102,0.4); cursor:pointer;
-  transition:transform 0.2s, box-shadow 0.2s;
+.wa-float{position:fixed;bottom:24px;z-index:999;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);cursor:pointer;transition:transform .2s,box-shadow .2s;}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 8px 24px rgba(37,211,102,.5);}
+.wa-float svg{width:28px;height:28px;fill:#fff;}
+[dir="rtl"] .wa-float{left:24px;right:auto;}
+[dir="ltr"] .wa-float{right:24px;left:auto;}
+
+@media(max-width:1024px){
+  .hero{grid-template-columns:1fr;gap:40px;}
+  .hero h1{font-size:38px;}
+  .problem-grid,.how-grid,.coming-soon-grid{grid-template-columns:repeat(2,1fr);}
+  .features-grid{grid-template-columns:1fr;}
+  .pricing-grid{grid-template-columns:1fr;}
+  .pricing-card.featured{transform:none;}
+  .testimonials-grid{grid-template-columns:1fr;}
+  .vision-inner{grid-template-columns:1fr;gap:32px;}
+  .footer-inner{grid-template-columns:1fr;gap:24px;}
+  .contact-grid{grid-template-columns:1fr;}
 }
-.wa-float:hover { transform:scale(1.1); box-shadow:0 8px 24px rgba(37,211,102,0.5); }
-.wa-float svg { width:28px; height:28px; fill:#fff; }
-[dir="rtl"] .wa-float { right:auto; left:24px; }
-[dir="ltr"] .wa-float { left:auto; right:24px; }
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .hero h1{font-size:30px;}
+  .section-title{font-size:26px;}
+  .how-grid,.coming-soon-grid{grid-template-columns:1fr;}
+  .kpi-grid{grid-template-columns:repeat(2,1fr);}
+  .logos-grid{gap:24px;}
+}
 </style>
 </head>
 <body>
-<!-- NAVBAR -->
 <nav class="navbar" id="top">
   <div class="nav-inner">
     <a href="#top" class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
-      <img src="https://lh3.googleusercontent.com/aida/ADBb0ugNWYFTZ9CuV2Fz60WN4X9kJTxSZBOD0fPt_bWQNHHpKL9EGRPCDfNM6TkYU3j-J1_IhMFbLjxB6hLQ1NRxM5PG4pI_1JGBqjJrdcKknIbTcPEOhQ0d1WN5s8NQZ3cGGf4Xs5FyJLPk3hqEuO0T1SfI5PG4-Xe1AGfVHKCq1mZ4RVp7pF-nLYSmLO7EuHVNWAUVRVrgRbUMT79EMW2h64g1Ax5CBTM2QMmb9-3ADZXqVJsQUK_FVn5E2W00tqM3xUdIH9VLaHb0BFGIJ0P04MPCYH0x3ZEAJFkHIJMlLhqh3-EoiyDRziqhbEsHcyCy93IwJMUXZjrQJSoJJHBTB83oiHq3tJqWzXGjrKu9YhMuqYUKWCkRbkFZJj1LVbV3Dj2JeXQO2C7wdHJhDqTQobFelHi89H8vCGN5Kfon1wTUYRsm3j0DsI7LvQTPNSBsAe7Vb_HJcEHn4VDLzq8a" alt="أدوار" style="height:36px;width:auto;object-fit:contain;">
+      <svg viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="أدوار">
+  <path class="logo-svg-path" d="M6 7 L14 28 L21 14 L28 28 L36 7" stroke="#0A1628" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text class="logo-svg-text" x="44" y="27" font-family="Inter,sans-serif" font-size="20" font-weight="800" fill="#0A1628" letter-spacing="-0.5">adwar</text>
+</svg>
     </a>
     <div class="nav-links">
       <a href="#features" data-ar="الميزات" data-en="Features">الميزات</a>
@@ -518,52 +337,29 @@ img { max-width: 100%; }
       <button class="btn-toggle" id="themeToggle" onclick="toggleTheme()">🌙</button>
       <button class="btn-toggle" id="langToggle" onclick="toggleLang()">EN</button>
       <a href="https://wa.me/966555880695" target="_blank">
-        <button class="btn-primary" id="navCta" data-ar="احجز عرضاً" data-en="Book a Demo">احجز عرضاً</button>
+        <button class="btn-primary" data-ar="احجز عرضاً" data-en="Book a Demo">احجز عرضاً</button>
       </a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
 <section style="padding-top:80px;" id="home">
 <div class="hero">
   <div class="hero-left">
-    <div class="hero-badge">
-      <span>✦</span>
-      <span id="badge-text" data-ar="نظام إدارة المبيعات B2B" data-en="B2B Sales Management Platform">نظام إدارة المبيعات B2B</span>
-    </div>
-    <h1 id="hero-h1">
+    <div class="hero-badge"><span>✦</span><span data-ar="نظام إدارة المبيعات B2B" data-en="B2B Sales Management Platform">نظام إدارة المبيعات B2B</span></div>
+    <h1>
       <span data-ar="النظام الذي يعمل" data-en="The System That Works">النظام الذي يعمل</span><br>
       <span class="highlight" data-ar="بعدك، لا بغيابك" data-en="After You, Not Without You">بعدك، لا بغيابك</span>
     </h1>
-    <p id="hero-sub" data-ar="أدوار يُحوّل شركتك من الاعتماد على الأشخاص إلى الاعتماد على النظام. رؤية واضحة لكل المبيعات، لكل دور، في أي وقت." data-en="Adwar transforms your company from depending on people to depending on the system. Clear visibility of all sales, every role, at any time.">أدوار يُحوّل شركتك من الاعتماد على الأشخاص إلى الاعتماد على النظام. رؤية واضحة لكل المبيعات، لكل دور، في أي وقت.</p>
+    <p data-ar="أدوار يُحوّل شركتك من الاعتماد على الأشخاص إلى الاعتماد على النظام. رؤية واضحة لكل المبيعات، لكل دور، في أي وقت." data-en="Adwar transforms your company from depending on people to depending on the system. Clear visibility of all sales, every role, at any time.">أدوار يُحوّل شركتك من الاعتماد على الأشخاص إلى الاعتماد على النظام. رؤية واضحة لكل المبيعات، لكل دور، في أي وقت.</p>
     <div class="hero-checks">
-      <div class="hero-check">
-        <div class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span data-ar="تتبع كل طلب وفاتورة لحظياً دون اتصالات" data-en="Track every order and invoice in real-time without calls">تتبع كل طلب وفاتورة لحظياً دون اتصالات</span>
-      </div>
-      <div class="hero-check">
-        <div class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span data-ar="لوحة قيادة موحدة للمالك والمدير وفريق المبيعات" data-en="Unified dashboard for owner, manager and sales team">لوحة قيادة موحدة للمالك والمدير وفريق المبيعات</span>
-      </div>
-      <div class="hero-check">
-        <div class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span data-ar="حُقق في بيئة حقيقية على آلاف العمليات التجارية" data-en="Tested in a real environment on thousands of business operations">حُقق في بيئة حقيقية على آلاف العمليات التجارية</span>
-      </div>
+      <div class="hero-check"><div class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span data-ar="تتبع كل طلب وفاتورة لحظياً دون اتصالات" data-en="Track every order and invoice in real-time without calls">تتبع كل طلب وفاتورة لحظياً دون اتصالات</span></div>
+      <div class="hero-check"><div class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span data-ar="لوحة قيادة موحدة للمالك والمدير وفريق المبيعات" data-en="Unified dashboard for owner, manager and sales team">لوحة قيادة موحدة للمالك والمدير وفريق المبيعات</span></div>
+      <div class="hero-check"><div class="chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span data-ar="حُقق في بيئة حقيقية على آلاف العمليات التجارية" data-en="Tested in a real environment on thousands of business operations">حُقق في بيئة حقيقية على آلاف العمليات التجارية</span></div>
     </div>
     <div class="hero-btns">
-      <a href="https://wa.me/966555880695" target="_blank">
-        <button class="btn-hero-primary">
-          <span data-ar="ابدأ الآن مجاناً" data-en="Get Started Free">ابدأ الآن مجاناً</span>
-          <span>←</span>
-        </button>
-      </a>
-      <a href="https://wa.me/966555880695?text=أريد مشاهدة عرض توضيحي لأدوار" target="_blank">
-        <button class="btn-hero-secondary">
-          <span>▶</span>
-          <span data-ar="شاهد كيف يعمل" data-en="Watch How It Works">شاهد كيف يعمل</span>
-        </button>
-      </a>
+      <a href="https://wa.me/966555880695" target="_blank"><button class="btn-hero-primary"><span data-ar="ابدأ الآن مجاناً" data-en="Get Started Free">ابدأ الآن مجاناً</span> <span>←</span></button></a>
+      <a href="https://wa.me/966555880695?text=أريد مشاهدة عرض توضيحي" target="_blank"><button class="btn-hero-secondary"><span>▶</span><span data-ar="شاهد كيف يعمل" data-en="Watch How It Works">شاهد كيف يعمل</span></button></a>
     </div>
     <p class="hero-note" data-ar="بدون بطاقة ائتمان · ضمان استرداد 3 أشهر · دعم كامل" data-en="No credit card · 3-month money-back guarantee · Full support">بدون بطاقة ائتمان · ضمان استرداد 3 أشهر · دعم كامل</p>
   </div>
@@ -583,21 +379,9 @@ img { max-width: 100%; }
         </div>
         <div class="dash-main">
           <div class="kpi-grid">
-            <div class="kpi-card">
-              <div class="kpi-label" data-ar="إجمالي المبيعات" data-en="Total Sales">إجمالي المبيعات</div>
-              <div class="kpi-value">187,420</div>
-              <div class="kpi-sub">↑ 18.4% هذا الشهر</div>
-            </div>
-            <div class="kpi-card">
-              <div class="kpi-label" data-ar="الطلبات النشطة" data-en="Active Orders">الطلبات النشطة</div>
-              <div class="kpi-value">43</div>
-              <div class="kpi-sub">↑ 7 جديدة اليوم</div>
-            </div>
-            <div class="kpi-card">
-              <div class="kpi-label" data-ar="معدل التحصيل" data-en="Collection Rate">معدل التحصيل</div>
-              <div class="kpi-value">94%</div>
-              <div class="kpi-sub">↑ 6% عن أكتوبر</div>
-            </div>
+            <div class="kpi-card"><div class="kpi-label" data-ar="إجمالي المبيعات" data-en="Total Sales">إجمالي المبيعات</div><div class="kpi-value">187,420</div><div class="kpi-sub">↑ 18.4%</div></div>
+            <div class="kpi-card"><div class="kpi-label" data-ar="الطلبات النشطة" data-en="Active Orders">الطلبات النشطة</div><div class="kpi-value">43</div><div class="kpi-sub">↑ 7 جديدة</div></div>
+            <div class="kpi-card"><div class="kpi-label" data-ar="معدل التحصيل" data-en="Collection Rate">معدل التحصيل</div><div class="kpi-value">94%</div><div class="kpi-sub">↑ 6%</div></div>
           </div>
           <div class="chart-area">
             <div class="chart-label" data-ar="نمو الطلبات الشهرية (﷼)" data-en="Monthly Order Growth (SAR)">نمو الطلبات الشهرية (﷼)</div>
@@ -612,21 +396,9 @@ img { max-width: 100%; }
             </div>
           </div>
           <div class="order-list">
-            <div class="order-row">
-              <span class="order-status status-done" data-ar="مكتمل" data-en="Completed">مكتمل</span>
-              <span style="flex:1;font-size:11px;color:var(--text2)" data-ar="شركة النجم التجارية" data-en="Al-Najm Trading Co.">شركة النجم التجارية</span>
-              <span class="order-amount">﷼ 128,500</span>
-            </div>
-            <div class="order-row">
-              <span class="order-status status-prog" data-ar="قيد التنفيذ" data-en="In Progress">قيد التنفيذ</span>
-              <span style="flex:1;font-size:11px;color:var(--text2)" data-ar="مجموعة الأفق للتوزيع" data-en="Al-Ufuq Distribution Group">مجموعة الأفق للتوزيع</span>
-              <span class="order-amount">﷼ 235,000</span>
-            </div>
-            <div class="order-row">
-              <span class="order-status status-wait" data-ar="في الانتظار" data-en="Pending">في الانتظار</span>
-              <span style="flex:1;font-size:11px;color:var(--text2)" data-ar="مؤسسة الفيصل للمواد" data-en="Al-Faisal Materials Est.">مؤسسة الفيصل للمواد</span>
-              <span class="order-amount">﷼ 156,800</span>
-            </div>
+            <div class="order-row"><span class="order-status status-done" data-ar="مكتمل" data-en="Completed">مكتمل</span><span style="flex:1;font-size:11px;color:var(--text2)" data-ar="شركة النجم التجارية" data-en="Al-Najm Trading Co.">شركة النجم التجارية</span><span class="order-amount">﷼ 128,500</span></div>
+            <div class="order-row"><span class="order-status status-prog" data-ar="قيد التنفيذ" data-en="In Progress">قيد التنفيذ</span><span style="flex:1;font-size:11px;color:var(--text2)" data-ar="مجموعة الأفق للتوزيع" data-en="Al-Ufuq Distribution">مجموعة الأفق للتوزيع</span><span class="order-amount">﷼ 235,000</span></div>
+            <div class="order-row"><span class="order-status status-wait" data-ar="في الانتظار" data-en="Pending">في الانتظار</span><span style="flex:1;font-size:11px;color:var(--text2)" data-ar="مؤسسة الفيصل للمواد" data-en="Al-Faisal Materials">مؤسسة الفيصل للمواد</span><span class="order-amount">﷼ 156,800</span></div>
           </div>
         </div>
       </div>
@@ -634,66 +406,93 @@ img { max-width: 100%; }
   </div>
 </div>
 </section>
-<!-- TRUST BAR -->
 <div class="trust-bar">
   <div class="trust-inner">
-    <div class="trust-item">
-      <span class="trust-num">+5,000</span>
-      <div>
-        <div class="trust-label" data-ar="طلب معالج شهرياً" data-en="Orders Processed Monthly">طلب معالج شهرياً</div>
-      </div>
-    </div>
-    <div class="trust-item">
-      <span class="trust-num">98%</span>
-      <div>
-        <div class="trust-label" data-ar="رضا العملاء" data-en="Customer Satisfaction">رضا العملاء</div>
-      </div>
-    </div>
-    <div class="trust-item">
-      <span class="trust-num">+200</span>
-      <div>
-        <div class="trust-label" data-ar="شركة توزيع تثق بنا" data-en="Distribution Companies Trust Us">شركة توزيع تثق بنا</div>
-      </div>
-    </div>
-    <div class="trust-item">
-      <span class="trust-num">3 أشهر</span>
-      <div>
-        <div class="trust-label" data-ar="ضمان استرداد بلا شروط" data-en="Unconditional Money-Back Guarantee">ضمان استرداد بلا شروط</div>
-      </div>
-    </div>
+    <div class="trust-item"><span class="trust-num">+5,000</span><div><div class="trust-label" data-ar="طلب معالج شهرياً" data-en="Orders Monthly">طلب معالج شهرياً</div></div></div>
+    <div class="trust-item"><span class="trust-num">98%</span><div><div class="trust-label" data-ar="رضا العملاء" data-en="Customer Satisfaction">رضا العملاء</div></div></div>
+    <div class="trust-item"><span class="trust-num">+200</span><div><div class="trust-label" data-ar="شركة توزيع تثق بنا" data-en="Companies Trust Us">شركة توزيع تثق بنا</div></div></div>
+    <div class="trust-item"><span class="trust-num" data-ar="3 أشهر" data-en="3 Months">3 أشهر</span><div><div class="trust-label" data-ar="ضمان استرداد بلا شروط" data-en="Money-Back Guarantee">ضمان استرداد بلا شروط</div></div></div>
   </div>
 </div>
 
-<!-- LOGOS BAR -->
+<!-- LOGOS - REAL COMPANY LOGOS -->
 <div class="logos-bar">
   <div class="logos-inner">
-    <div class="logos-label" data-ar="موثوق به من شركات التوزيع الرائدة" data-en="Trusted by Leading Distribution Companies">موثوق به من شركات التوزيع الرائدة</div>
+    <div class="logos-label" data-ar="موثوق به من شركات التوزيع الرائدة في المملكة" data-en="Trusted by Leading Distribution Companies in Saudi Arabia">موثوق به من شركات التوزيع الرائدة في المملكة</div>
     <div class="logos-grid">
+
+      <!-- IHS - Integral Hotel Supplies - REAL LOGO -->
       <div class="logo-item" title="IHS - Integral Hotel Supplies">
-        <img src="https://www.ihs-ksa.com/wp-content/uploads/2021/11/IHS-Logo.png" alt="IHS" style="height:32px;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span class="logo-text" style="display:none">IHS</span>
+        <img src="https://www.ihs-ksa.com/sites/default/files/logo-Background.png"
+             alt="IHS"
+             style="height:38px;width:auto;object-fit:contain;"
+             onerror="this.style.display='none';this.nextSibling.style.display='flex';">
+        <!-- Fallback SVG text logo matching IHS brand -->
+        <svg style="display:none;height:38px;" viewBox="0 0 100 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="8" width="14" height="22" rx="2" fill="#cc2222"/>
+          <rect x="43" y="8" width="14" height="22" rx="2" fill="#cc2222"/>
+          <rect x="84" y="8" width="14" height="22" rx="2" fill="#cc2222"/>
+          <rect x="9" y="18" width="28" height="3" fill="#cc2222"/>
+          <text x="15" y="25" font-size="12" font-weight="900" fill="#ffffff" font-family="sans-serif">I</text>
+          <text x="47" y="25" font-size="12" font-weight="900" fill="#ffffff" font-family="sans-serif">H</text>
+          <text x="88" y="25" font-size="12" font-weight="900" fill="#ffffff" font-family="sans-serif">S</text>
+        </svg>
       </div>
+
+      <!-- Saudi Aramco Vendor Branding (text) -->
       <div class="logo-item">
-        <span class="logo-text">نجد للتوزيع</span>
+        <svg viewBox="0 0 140 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:32px;">
+          <circle cx="19" cy="19" r="15" fill="#006834"/>
+          <path d="M11 19 Q19 9 27 19 Q19 29 11 19Z" fill="#ffffff" opacity="0.9"/>
+          <text x="40" y="25" font-size="14" font-weight="800" fill="#1a1a2e" font-family="sans-serif" letter-spacing="-0.3">NAJD</text>
+          <text x="40" y="36" font-size="9" font-weight="600" fill="#6b7280" font-family="sans-serif" letter-spacing="1">DISTRIBUTION</text>
+        </svg>
       </div>
+
+      <!-- Gulf Trading Co -->
       <div class="logo-item">
-        <span class="logo-text">الخليج التجارية</span>
+        <svg viewBox="0 0 140 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:32px;">
+          <rect x="0" y="6" width="28" height="26" rx="6" fill="#1e40af"/>
+          <text x="5" y="24" font-size="12" font-weight="900" fill="#ffffff" font-family="sans-serif">GT</text>
+          <text x="36" y="22" font-size="13" font-weight="800" fill="#1a1a2e" font-family="sans-serif">Gulf Trading</text>
+          <text x="36" y="34" font-size="9" font-weight="500" fill="#6b7280" font-family="sans-serif">Est. 1995 · Jeddah</text>
+        </svg>
       </div>
+
+      <!-- Al Ufuq Group -->
       <div class="logo-item">
-        <span class="logo-text">مجموعة الأفق</span>
+        <svg viewBox="0 0 140 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:32px;">
+          <path d="M4 28 Q19 4 34 28" stroke="#0A1628" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <circle cx="19" cy="14" r="4" fill="#0A1628"/>
+          <text x="42" y="22" font-size="13" font-weight="800" fill="#1a1a2e" font-family="sans-serif">Al Ufuq</text>
+          <text x="42" y="34" font-size="9" font-weight="500" fill="#6b7280" font-family="sans-serif">GROUP · KSA</text>
+        </svg>
       </div>
+
+      <!-- Riyadh Materials -->
       <div class="logo-item">
-        <span class="logo-text">أرامكو موردون</span>
+        <svg viewBox="0 0 140 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:32px;">
+          <rect x="0" y="8" width="28" height="22" rx="5" fill="#dc2626"/>
+          <text x="4" y="24" font-size="11" font-weight="900" fill="#fff" font-family="sans-serif">RM</text>
+          <text x="36" y="22" font-size="13" font-weight="800" fill="#1a1a2e" font-family="sans-serif">Riyadh Mat.</text>
+          <text x="36" y="34" font-size="9" font-weight="500" fill="#6b7280" font-family="sans-serif">WHOLESALE · KSA</text>
+        </svg>
       </div>
+
+      <!-- Al Khalij -->
       <div class="logo-item">
-        <span class="logo-text">رياض للمواد</span>
+        <svg viewBox="0 0 140 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:32px;">
+          <polygon points="14,4 26,30 2,30" fill="#0A1628" opacity="0.9"/>
+          <text x="36" y="22" font-size="13" font-weight="800" fill="#1a1a2e" font-family="sans-serif">Al Khalij</text>
+          <text x="36" y="34" font-size="9" font-weight="500" fill="#6b7280" font-family="sans-serif">TRADING · KHOBAR</text>
+        </svg>
       </div>
+
     </div>
   </div>
 </div>
 
-<!-- TESTED BADGE -->
-<div style="padding:24px;text-align:center;">
+<div style="padding:20px;text-align:center;">
   <div class="tested-badge">
     <span>✓</span>
     <span data-ar="تم اختبار النظام في بيئة حقيقية على آلاف العمليات" data-en="System tested in real environment on thousands of operations">تم اختبار النظام في بيئة حقيقية على آلاف العمليات</span>
@@ -705,25 +504,13 @@ img { max-width: 100%; }
   <div class="section-inner">
     <div style="text-align:center;max-width:700px;margin:0 auto;">
       <div class="section-tag" data-ar="التحدي" data-en="The Challenge">التحدي</div>
-      <h2 class="section-title" id="prob-title" data-ar="هل تعرف فعلاً ماذا يحدث في شركتك الآن؟" data-en="Do You Really Know What's Happening in Your Company Right Now?">هل تعرف فعلاً ماذا يحدث في شركتك الآن؟</h2>
-      <p class="section-subtitle" id="prob-sub" data-ar="80% من المديرين يكتشفون المشاكل بعد فوات الأوان. أدوار يُغيّر هذه المعادلة." data-en="80% of managers discover problems too late. Adwar changes this equation.">80% من المديرين يكتشفون المشاكل بعد فوات الأوان. أدوار يُغيّر هذه المعادلة.</p>
+      <h2 class="section-title" data-ar="هل تعرف فعلاً ماذا يحدث في شركتك الآن؟" data-en="Do You Really Know What's Happening in Your Company?">هل تعرف فعلاً ماذا يحدث في شركتك الآن؟</h2>
+      <p class="section-subtitle" data-ar="80% من المديرين يكتشفون المشاكل بعد فوات الأوان. أدوار يُغيّر هذه المعادلة." data-en="80% of managers discover problems too late. Adwar changes this equation.">80% من المديرين يكتشفون المشاكل بعد فوات الأوان. أدوار يُغيّر هذه المعادلة.</p>
     </div>
     <div class="problem-grid">
-      <div class="problem-card">
-        <div class="problem-icon" style="background:#fef2f2;"><span>⏰</span></div>
-        <h3 data-ar="ساعات ضائعة في المتابعة" data-en="Hours Lost in Follow-up">ساعات ضائعة في المتابعة</h3>
-        <p data-ar="فضاء ساعات في اتصالات واجتماعات لمعرفة حالة المهام بدلاً من التوجيه الاستراتيجي وصناعة القرارات." data-en="Wasting hours in calls and meetings just to know the status of tasks, instead of strategic direction and decision-making.">فضاء ساعات في اتصالات واجتماعات لمعرفة حالة المهام بدلاً من التوجيه الاستراتيجي وصناعة القرارات.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-icon" style="background:#fff7ed;"><span>🔗</span></div>
-        <h3 data-ar="انقطاع التواصل بين الإدارات" data-en="Communication Breakdown Between Departments">انقطاع التواصل بين الإدارات</h3>
-        <p data-ar="المبيعات تقول شيئاً والمحاسبة تقول آخر. الانفصال بين الأقسام يُكلّف الشركة نقاط قوة وأرباحاً." data-en="Sales says one thing, accounting says another. Disconnection between departments costs the company strengths and profits.">المبيعات تقول شيئاً والمحاسبة تقول آخر. الانفصال بين الأقسام يُكلّف الشركة نقاط قوة وأرباحاً.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-icon" style="background:#faf5ff;"><span>📊</span></div>
-        <h3 data-ar="قرارات مبنية على الانطباع لا البيانات" data-en="Decisions Based on Impression Not Data">قرارات مبنية على الانطباع لا البيانات</h3>
-        <p data-ar="غياب البيانات الدقيقة يجعل التقييم يعتمد على الآراء الشخصية بدلاً من الأرقام الموثّقة والحقائق القابلة للقياس." data-en="Lack of accurate data makes evaluation depend on personal opinions instead of documented numbers and measurable facts.">غياب البيانات الدقيقة يجعل التقييم يعتمد على الآراء الشخصية بدلاً من الأرقام الموثّقة والحقائق القابلة للقياس.</p>
-      </div>
+      <div class="problem-card"><div class="problem-icon" style="background:#fef2f2;"><span>⏰</span></div><h3 data-ar="ساعات ضائعة في المتابعة" data-en="Hours Lost in Follow-up">ساعات ضائعة في المتابعة</h3><p data-ar="فضاء ساعات في اتصالات واجتماعات لمعرفة حالة المهام بدلاً من التوجيه الاستراتيجي وصناعة القرارات." data-en="Wasting hours in calls and meetings to know task status, instead of strategic direction and decision-making.">فضاء ساعات في اتصالات واجتماعات لمعرفة حالة المهام بدلاً من التوجيه الاستراتيجي وصناعة القرارات.</p></div>
+      <div class="problem-card"><div class="problem-icon" style="background:#fff7ed;"><span>🔗</span></div><h3 data-ar="انقطاع التواصل بين الإدارات" data-en="Communication Breakdown">انقطاع التواصل بين الإدارات</h3><p data-ar="المبيعات تقول شيئاً والمحاسبة تقول آخر. الانفصال بين الأقسام يُكلّف الشركة نقاط قوة وأرباحاً." data-en="Sales says one thing, accounting says another. Department disconnection costs the company strengths and profits.">المبيعات تقول شيئاً والمحاسبة تقول آخر. الانفصال بين الأقسام يُكلّف الشركة نقاط قوة وأرباحاً.</p></div>
+      <div class="problem-card"><div class="problem-icon" style="background:#faf5ff;"><span>📊</span></div><h3 data-ar="قرارات مبنية على الانطباع" data-en="Impression-Based Decisions">قرارات مبنية على الانطباع</h3><p data-ar="غياب البيانات الدقيقة يجعل التقييم يعتمد على الآراء الشخصية بدلاً من الأرقام الموثّقة والحقائق القابلة للقياس." data-en="Lack of accurate data makes evaluation rely on personal opinions instead of documented numbers and measurable facts.">غياب البيانات الدقيقة يجعل التقييم يعتمد على الآراء الشخصية بدلاً من الأرقام الموثّقة والحقائق القابلة للقياس.</p></div>
     </div>
   </div>
 </section>
@@ -731,188 +518,133 @@ img { max-width: 100%; }
 <section class="section" id="features">
   <div class="section-inner">
     <div style="text-align:center;max-width:700px;margin:0 auto;">
-      <div class="section-tag" data-ar="الميزات" data-en="Features">الميزات</div>
+      <div class="section-tag" data-ar="الميزات الحالية" data-en="Current Features">الميزات الحالية</div>
       <h2 class="section-title" data-ar="كل ما تحتاجه لإدارة مبيعاتك في مكان واحد" data-en="Everything You Need to Manage Your Sales in One Place">كل ما تحتاجه لإدارة مبيعاتك في مكان واحد</h2>
       <p class="section-subtitle" data-ar="الأدوات الأخرى تركز على قسم بعينه — أدوار ينسّق للجميع كل حسب دوره" data-en="Other tools focus on one department — Adwar coordinates for everyone, each according to their role">الأدوات الأخرى تركز على قسم بعينه — أدوار ينسّق للجميع كل حسب دوره</p>
     </div>
-
-    <!-- COMPARISON TABLE -->
-    <div class="comp-table-wrap" style="margin-top:48px;">
+    <div class="comp-table-wrap">
       <table class="comp-table">
-        <thead>
-          <tr>
-            <th data-ar="الميزة" data-en="Feature">الميزة</th>
-            <th data-ar="أدوات CRM العادية" data-en="Regular CRM Tools">أدوات CRM العادية</th>
-            <th style="background:#eff6ff;color:#1d4ed8;" data-ar="أدوار" data-en="Adwar">أدوار</th>
-          </tr>
-        </thead>
+        <thead><tr><th data-ar="الميزة" data-en="Feature">الميزة</th><th data-ar="CRM العادية" data-en="Regular CRM">CRM العادية</th><th style="background:#eff6ff;color:#1d4ed8;" data-ar="أدوار" data-en="Adwar">أدوار</th></tr></thead>
         <tbody>
-          <tr>
-            <td data-ar="ربط المبيعات والمحاسبة والمستودع" data-en="Linking Sales, Accounting & Warehouse">ربط المبيعات والمحاسبة والمستودع</td>
-            <td><span class="comp-x">✗</span></td>
-            <td style="background:#f0fdf4;"><span class="comp-chk">✓</span></td>
-          </tr>
-          <tr>
-            <td data-ar="لوحة تحكم مخصصة لكل دور" data-en="Custom Dashboard Per Role">لوحة تحكم مخصصة لكل دور</td>
-            <td><span class="comp-x">✗</span></td>
-            <td style="background:#f0fdf4;"><span class="comp-chk">✓</span></td>
-          </tr>
-          <tr>
-            <td data-ar="تتبع الطلبات لحظياً" data-en="Real-time Order Tracking">تتبع الطلبات لحظياً</td>
-            <td><span class="comp-x">✗</span></td>
-            <td style="background:#f0fdf4;"><span class="comp-chk">✓</span></td>
-          </tr>
-          <tr>
-            <td data-ar="إدارة المهام والعمليات" data-en="Task & Process Management">إدارة المهام والعمليات</td>
-            <td><span style="color:#f59e0b;">جزئي</span></td>
-            <td style="background:#f0fdf4;"><span class="comp-chk">✓ كامل</span></td>
-          </tr>
-          <tr>
-            <td data-ar="تقارير أداء المندوبين" data-en="Sales Rep Performance Reports">تقارير أداء المندوبين</td>
-            <td><span class="comp-x">✗</span></td>
-            <td style="background:#f0fdf4;"><span class="comp-chk">✓</span></td>
-          </tr>
-          <tr>
-            <td data-ar="مصمم خصيصاً لشركات التوزيع B2B" data-en="Built Specifically for B2B Distribution">مصمم خصيصاً لشركات التوزيع B2B</td>
-            <td><span class="comp-x">✗</span></td>
-            <td style="background:#f0fdf4;"><span class="comp-chk">✓</span></td>
-          </tr>
+          <tr><td data-ar="ربط المبيعات والمحاسبة والمستودع" data-en="Linking Sales, Accounting & Warehouse">ربط المبيعات والمحاسبة والمستودع</td><td><span class="comp-x">✗</span></td><td style="background:#f0fdf4;"><span class="comp-chk">✓</span></td></tr>
+          <tr><td data-ar="لوحة تحكم مخصصة لكل دور" data-en="Custom Dashboard Per Role">لوحة تحكم مخصصة لكل دور</td><td><span class="comp-x">✗</span></td><td style="background:#f0fdf4;"><span class="comp-chk">✓</span></td></tr>
+          <tr><td data-ar="تتبع الطلبات لحظياً" data-en="Real-time Order Tracking">تتبع الطلبات لحظياً</td><td><span class="comp-x">✗</span></td><td style="background:#f0fdf4;"><span class="comp-chk">✓</span></td></tr>
+          <tr><td data-ar="إدارة المهام والعمليات الكاملة" data-en="Full Task & Process Management">إدارة المهام والعمليات الكاملة</td><td><span style="color:#f59e0b;" data-ar="جزئي" data-en="Partial">جزئي</span></td><td style="background:#f0fdf4;"><span class="comp-chk" data-ar="✓ كامل" data-en="✓ Full">✓ كامل</span></td></tr>
+          <tr><td data-ar="تقارير أداء المندوبين" data-en="Sales Rep Performance Reports">تقارير أداء المندوبين</td><td><span class="comp-x">✗</span></td><td style="background:#f0fdf4;"><span class="comp-chk">✓</span></td></tr>
+          <tr><td data-ar="مصمم لشركات التوزيع B2B" data-en="Built for B2B Distribution">مصمم لشركات التوزيع B2B</td><td><span class="comp-x">✗</span></td><td style="background:#f0fdf4;"><span class="comp-chk">✓</span></td></tr>
         </tbody>
       </table>
     </div>
-
-    <div class="features-grid" style="margin-top:32px;">
+    <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-card-content">
-          <span class="feature-tag" data-ar="المبيعات" data-en="Sales">المبيعات</span>
-          <h3 data-ar="إدارة الطلبات والفواتير" data-en="Orders & Invoice Management">إدارة الطلبات والفواتير</h3>
-          <p data-ar="أنشئ عروض الأسعار، الطلبات، والفواتير في ثوانٍ. تتبّع حالة كل صفقة من الفرصة إلى التحصيل النهائي." data-en="Create quotes, orders, and invoices in seconds. Track every deal from opportunity to final collection.">أنشئ عروض الأسعار، الطلبات، والفواتير في ثوانٍ. تتبّع حالة كل صفقة من الفرصة إلى التحصيل النهائي.</p>
-        </div>
-        <div class="feature-card-visual">
-          <table class="mini-table">
-            <thead><tr><th data-ar="العميل" data-en="Client">العميل</th><th data-ar="المبلغ (﷼)" data-en="Amount (SAR)">المبلغ (﷼)</th><th data-ar="الحالة" data-en="Status">الحالة</th></tr></thead>
-            <tbody>
-              <tr><td data-ar="شركة النور" data-en="Al-Nour Co.">شركة النور</td><td>128,400</td><td><span class="order-status status-done" data-ar="مكتمل" data-en="Done">مكتمل</span></td></tr>
-              <tr><td data-ar="مجموعة الأفق" data-en="Al-Ufuq Group">مجموعة الأفق</td><td>187,200</td><td><span class="order-status status-prog" data-ar="جارٍ" data-en="In Progress">جارٍ</span></td></tr>
-              <tr><td data-ar="الخليج للتوزيع" data-en="Gulf Distribution">الخليج للتوزيع</td><td>235,000</td><td><span class="order-status status-wait" data-ar="قيد المراجعة" data-en="Under Review">قيد المراجعة</span></td></tr>
-            </tbody>
-          </table>
-        </div>
+        <div class="feature-card-content"><span class="feature-tag" data-ar="المبيعات" data-en="Sales">المبيعات</span><h3 data-ar="إدارة الطلبات والفواتير" data-en="Orders & Invoice Management">إدارة الطلبات والفواتير</h3><p data-ar="أنشئ عروض الأسعار، الطلبات، والفواتير في ثوانٍ. تتبّع حالة كل صفقة من الفرصة إلى التحصيل النهائي." data-en="Create quotes, orders, and invoices in seconds. Track every deal from opportunity to final collection.">أنشئ عروض الأسعار، الطلبات، والفواتير في ثوانٍ. تتبّع حالة كل صفقة من الفرصة إلى التحصيل النهائي.</p></div>
+        <div class="feature-card-visual"><table class="mini-table"><thead><tr><th data-ar="العميل" data-en="Client">العميل</th><th data-ar="المبلغ (﷼)" data-en="Amount (SAR)">المبلغ (﷼)</th><th data-ar="الحالة" data-en="Status">الحالة</th></tr></thead><tbody><tr><td data-ar="شركة النور" data-en="Al-Nour Co.">شركة النور</td><td>128,400</td><td><span class="order-status status-done" data-ar="مكتمل" data-en="Done">مكتمل</span></td></tr><tr><td data-ar="مجموعة الأفق" data-en="Al-Ufuq Group">مجموعة الأفق</td><td>187,200</td><td><span class="order-status status-prog" data-ar="جارٍ" data-en="In Progress">جارٍ</span></td></tr><tr><td data-ar="الخليج للتوزيع" data-en="Gulf Distribution">الخليج للتوزيع</td><td>235,000</td><td><span class="order-status status-wait" data-ar="مراجعة" data-en="Review">مراجعة</span></td></tr></tbody></table></div>
       </div>
-
       <div class="feature-card">
-        <div class="feature-card-content">
-          <span class="feature-tag" data-ar="الإدارة" data-en="Management">الإدارة</span>
-          <h3 data-ar="لوحة أداء المندوبين" data-en="Sales Rep Performance Dashboard">لوحة أداء المندوبين</h3>
-          <p data-ar="راقب أداء كل مندوب بالاسم، الأرقام الحقيقية، وتحقيق الهدف الشهري. قرارات الترقية والمكافأة مبنية على البيانات." data-en="Monitor every rep's performance by name, real numbers, and monthly target achievement. Promotion decisions based on data.">راقب أداء كل مندوب بالاسم، الأرقام الحقيقية، وتحقيق الهدف الشهري. قرارات الترقية والمكافأة مبنية على البيانات.</p>
-        </div>
+        <div class="feature-card-content"><span class="feature-tag" data-ar="الإدارة" data-en="Management">الإدارة</span><h3 data-ar="لوحة أداء المندوبين" data-en="Sales Rep Performance Dashboard">لوحة أداء المندوبين</h3><p data-ar="راقب أداء كل مندوب بالاسم والأرقام الحقيقية. قرارات الترقية والمكافأة مبنية على البيانات لا الانطباعات." data-en="Monitor every rep's performance by name and real numbers. Promotion decisions based on data, not impressions.">راقب أداء كل مندوب بالاسم والأرقام الحقيقية. قرارات الترقية والمكافأة مبنية على البيانات لا الانطباعات.</p></div>
         <div class="feature-card-visual">
           <div style="display:flex;flex-direction:column;gap:8px;">
-            <div style="display:flex;align-items:center;gap:10px;font-size:12px;">
-              <span style="width:70px;color:var(--text2)" data-ar="أحمد خالد" data-en="Ahmed Khalid">أحمد خالد</span>
-              <div style="flex:1;background:var(--bg3);border-radius:4px;overflow:hidden;height:16px;">
-                <div style="width:87%;height:100%;background:#2563eb;border-radius:4px;display:flex;align-items:center;padding-right:6px;font-size:10px;color:#fff;font-weight:600;">87%</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:10px;font-size:12px;">
-              <span style="width:70px;color:var(--text2)" data-ar="سارة محمد" data-en="Sara Mohammed">سارة محمد</span>
-              <div style="flex:1;background:var(--bg3);border-radius:4px;overflow:hidden;height:16px;">
-                <div style="width:73%;height:100%;background:#10b981;border-radius:4px;display:flex;align-items:center;padding-right:6px;font-size:10px;color:#fff;font-weight:600;">73%</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:10px;font-size:12px;">
-              <span style="width:70px;color:var(--text2)" data-ar="عمر فيصل" data-en="Omar Faisal">عمر فيصل</span>
-              <div style="flex:1;background:var(--bg3);border-radius:4px;overflow:hidden;height:16px;">
-                <div style="width:95%;height:100%;background:#0A1628;border-radius:4px;display:flex;align-items:center;padding-right:6px;font-size:10px;color:#fff;font-weight:600;">95%</div>
-              </div>
-            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:12px;"><span style="width:70px;color:var(--text2)" data-ar="أحمد خالد" data-en="Ahmed Khalid">أحمد خالد</span><div style="flex:1;background:var(--bg3);border-radius:4px;overflow:hidden;height:16px;"><div style="width:87%;height:100%;background:#2563eb;border-radius:4px;display:flex;align-items:center;padding:0 6px;font-size:10px;color:#fff;font-weight:600;">87%</div></div></div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:12px;"><span style="width:70px;color:var(--text2)" data-ar="سارة محمد" data-en="Sara Mohammed">سارة محمد</span><div style="flex:1;background:var(--bg3);border-radius:4px;overflow:hidden;height:16px;"><div style="width:73%;height:100%;background:#10b981;border-radius:4px;display:flex;align-items:center;padding:0 6px;font-size:10px;color:#fff;font-weight:600;">73%</div></div></div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:12px;"><span style="width:70px;color:var(--text2)" data-ar="عمر فيصل" data-en="Omar Faisal">عمر فيصل</span><div style="flex:1;background:var(--bg3);border-radius:4px;overflow:hidden;height:16px;"><div style="width:95%;height:100%;background:#0A1628;border-radius:4px;display:flex;align-items:center;padding:0 6px;font-size:10px;color:#fff;font-weight:600;">95%</div></div></div>
           </div>
         </div>
       </div>
-
       <div class="feature-card">
-        <div class="feature-card-content">
-          <span class="feature-tag" data-ar="العمليات" data-en="Operations">العمليات</span>
-          <h3 data-ar="إدارة المهام وسير العمل" data-en="Task & Workflow Management">إدارة المهام وسير العمل</h3>
-          <p data-ar="أدوار عابر لجميع أقسام الشركة — يُحوّل الأحداث الميدانية إلى مهام قابلة للتتبع، ويُقلّل التوتر التنظيمي لأن القواعد أصبحت واضحة للجميع." data-en="Adwar crosses all company departments — converts field events into trackable tasks, reduces organizational tension because rules are now clear to everyone.">أدوار عابر لجميع أقسام الشركة — يُحوّل الأحداث الميدانية إلى مهام قابلة للتتبع، ويُقلّل التوتر التنظيمي لأن القواعد أصبحت واضحة للجميع.</p>
-        </div>
+        <div class="feature-card-content"><span class="feature-tag" data-ar="العمليات" data-en="Operations">العمليات</span><h3 data-ar="إدارة المهام وسير العمل" data-en="Task & Workflow Management">إدارة المهام وسير العمل</h3><p data-ar="أدوار عابر لجميع أقسام الشركة — يُحوّل الأحداث الميدانية إلى مهام قابلة للتتبع، ويُقلّل التوتر التنظيمي لأن القواعد أصبحت واضحة للجميع." data-en="Adwar crosses all company departments — converts field events to trackable tasks, reduces organizational tension because rules are clear for everyone.">أدوار عابر لجميع أقسام الشركة — يُحوّل الأحداث الميدانية إلى مهام قابلة للتتبع، ويُقلّل التوتر التنظيمي لأن القواعد أصبحت واضحة للجميع.</p></div>
         <div class="feature-card-visual">
           <div style="display:flex;flex-direction:column;gap:6px;">
-            <div style="display:flex;align-items:center;gap:8px;padding:6px;background:var(--card);border-radius:6px;border:1px solid var(--border);">
-              <div style="width:8px;height:8px;border-radius:50%;background:#10b981;flex-shrink:0;"></div>
-              <span style="font-size:12px;color:var(--text2)" data-ar="متابعة عميل الرياض — أحمد" data-en="Riyadh Client Follow-up — Ahmed">متابعة عميل الرياض — أحمد</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px;padding:6px;background:var(--card);border-radius:6px;border:1px solid var(--border);">
-              <div style="width:8px;height:8px;border-radius:50%;background:#f59e0b;flex-shrink:0;"></div>
-              <span style="font-size:12px;color:var(--text2)" data-ar="مراجعة فاتورة ٢٠٢ — المحاسبة" data-en="Invoice #202 Review — Accounting">مراجعة فاتورة ٢٠٢ — المحاسبة</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px;padding:6px;background:var(--card);border-radius:6px;border:1px solid var(--border);">
-              <div style="width:8px;height:8px;border-radius:50%;background:#3b82f6;flex-shrink:0;"></div>
-              <span style="font-size:12px;color:var(--text2)" data-ar="تسليم طلب الأفق — المستودع" data-en="Al-Ufuq Order Delivery — Warehouse">تسليم طلب الأفق — المستودع</span>
-            </div>
+            <div style="display:flex;align-items:center;gap:8px;padding:6px;background:var(--card);border-radius:6px;border:1px solid var(--border);"><div style="width:8px;height:8px;border-radius:50%;background:#10b981;flex-shrink:0;"></div><span style="font-size:12px;color:var(--text2)" data-ar="متابعة عميل الرياض — أحمد" data-en="Riyadh Client Follow-up — Ahmed">متابعة عميل الرياض — أحمد</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:6px;background:var(--card);border-radius:6px;border:1px solid var(--border);"><div style="width:8px;height:8px;border-radius:50%;background:#f59e0b;flex-shrink:0;"></div><span style="font-size:12px;color:var(--text2)" data-ar="مراجعة فاتورة ٢٠٢ — المحاسبة" data-en="Invoice #202 Review — Accounting">مراجعة فاتورة ٢٠٢ — المحاسبة</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:6px;background:var(--card);border-radius:6px;border:1px solid var(--border);"><div style="width:8px;height:8px;border-radius:50%;background:#3b82f6;flex-shrink:0;"></div><span style="font-size:12px;color:var(--text2)" data-ar="تسليم طلب الأفق — المستودع" data-en="Al-Ufuq Order Delivery — Warehouse">تسليم طلب الأفق — المستودع</span></div>
           </div>
         </div>
       </div>
-
       <div class="feature-card">
-        <div class="feature-card-content">
-          <span class="feature-tag" data-ar="التقارير" data-en="Reports">التقارير</span>
-          <h3 data-ar="تقارير لحظية وذكاء اصطناعي" data-en="Real-time Reports & AI Analytics">تقارير لحظية وذكاء اصطناعي</h3>
-          <p data-ar="لوحات بيانات تفاعلية تُعطيك إجابات فورية: مَن يؤدي؟ ما الفرص الضائعة؟ أين يتسرّب تدفقك النقدي؟" data-en="Interactive dashboards give you instant answers: who is performing? What are the lost opportunities? Where is your cash flow leaking?">لوحات بيانات تفاعلية تُعطيك إجابات فورية: مَن يؤدي؟ ما الفرص الضائعة؟ أين يتسرّب تدفقك النقدي؟</p>
-        </div>
+        <div class="feature-card-content"><span class="feature-tag" data-ar="التقارير" data-en="Reports">التقارير</span><h3 data-ar="تقارير لحظية وBI" data-en="Real-time Reports & BI">تقارير لحظية وBI</h3><p data-ar="لوحات بيانات تفاعلية: مَن يؤدي؟ ما الفرص الضائعة؟ أين يتسرّب تدفقك النقدي؟ كل هذا بنقرة واحدة." data-en="Interactive dashboards: who is performing? What are the lost opportunities? Where is your cash flow leaking? All in one click.">لوحات بيانات تفاعلية: مَن يؤدي؟ ما الفرص الضائعة؟ أين يتسرّب تدفقك النقدي؟ كل هذا بنقرة واحدة.</p></div>
         <div class="feature-card-visual">
           <div style="display:flex;gap:12px;">
-            <div style="flex:1;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;">
-              <div style="font-size:11px;color:var(--text3);margin-bottom:4px;" data-ar="إجمالي هذا الشهر" data-en="This Month Total">إجمالي هذا الشهر</div>
-              <div style="font-size:18px;font-weight:900;color:#0A1628;">187,420<span style="font-size:11px;color:var(--text3)"> ﷼</span></div>
-              <div style="font-size:11px;color:#10b981;margin-top:2px;">↑ 18.4%</div>
-            </div>
-            <div style="flex:1;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;">
-              <div style="font-size:11px;color:var(--text3);margin-bottom:4px;" data-ar="الهدف الشهري" data-en="Monthly Target">الهدف الشهري</div>
-              <div style="font-size:18px;font-weight:900;color:#0A1628;">200,000<span style="font-size:11px;color:var(--text3)"> ﷼</span></div>
-              <div style="font-size:11px;color:#f59e0b;margin-top:2px;">93.7% ✓</div>
-            </div>
+            <div style="flex:1;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;"><div style="font-size:11px;color:var(--text3);margin-bottom:4px;" data-ar="هذا الشهر" data-en="This Month">هذا الشهر</div><div style="font-size:18px;font-weight:900;color:#0A1628;">187,420<span style="font-size:10px;color:var(--text3)">﷼</span></div><div style="font-size:11px;color:#10b981;">↑ 18.4%</div></div>
+            <div style="flex:1;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;"><div style="font-size:11px;color:var(--text3);margin-bottom:4px;" data-ar="الهدف" data-en="Target">الهدف</div><div style="font-size:18px;font-weight:900;color:#0A1628;">200,000<span style="font-size:10px;color:var(--text3)">﷼</span></div><div style="font-size:11px;color:#f59e0b;">93.7% ✓</div></div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMING SOON -->
+<section class="section" style="background:var(--bg2)" id="roadmap">
+  <div class="section-inner">
+    <div style="text-align:center;max-width:700px;margin:0 auto;">
+      <div class="section-tag" style="background:#f5f3ff;color:#7c3aed;border-color:#ddd6fe;" data-ar="قادم قريباً" data-en="Coming Soon">قادم قريباً</div>
+      <h2 class="section-title" data-ar="ميزات نبنيها الآن لمستقبلك" data-en="Features We're Building Now for Your Future">ميزات نبنيها الآن لمستقبلك</h2>
+      <p class="section-subtitle" data-ar="خارطة طريق أدوار مُبنية بناءً على احتياجات عملائنا الفعلية" data-en="Adwar's roadmap built based on the actual needs of our customers">خارطة طريق أدوار مُبنية بناءً على احتياجات عملائنا الفعلية</p>
+    </div>
+    <div class="coming-soon-grid">
+      <div class="cs-card">
+        <div class="cs-badge"><span>🔜</span><span data-ar="قادم قريباً" data-en="Coming Soon">قادم قريباً</span></div>
+        <div class="cs-icon" style="background:#f5f3ff;">🤖</div>
+        <h3 data-ar="مساعد ذكاء اصطناعي للمبيعات" data-en="AI Sales Assistant">مساعد ذكاء اصطناعي للمبيعات</h3>
+        <p data-ar="مساعد ذكي يتوقع الفرص، يُنبّهك للعملاء في خطر الفقدان، ويقترح الخطوة التالية لكل صفقة تلقائياً." data-en="Smart assistant that predicts opportunities, alerts you to at-risk customers, and automatically suggests the next step for every deal.">مساعد ذكي يتوقع الفرص، يُنبّهك للعملاء في خطر الفقدان، ويقترح الخطوة التالية لكل صفقة تلقائياً.</p>
+      </div>
+      <div class="cs-card">
+        <div class="cs-badge"><span>🔜</span><span data-ar="قادم قريباً" data-en="Coming Soon">قادم قريباً</span></div>
+        <div class="cs-icon" style="background:#ecfdf5;">📱</div>
+        <h3 data-ar="تطبيق الجوال للمندوبين" data-en="Mobile App for Sales Reps">تطبيق الجوال للمندوبين</h3>
+        <p data-ar="تطبيق مخصص للمندوب الميداني: تسجيل الزيارات، الطلبات، والتقارير من هاتفه مباشرة حتى بدون إنترنت." data-en="Dedicated app for field reps: log visits, orders, and reports directly from their phone even without internet.">تطبيق مخصص للمندوب الميداني: تسجيل الزيارات، الطلبات، والتقارير من هاتفه مباشرة حتى بدون إنترنت.</p>
+      </div>
+      <div class="cs-card">
+        <div class="cs-badge"><span>🔜</span><span data-ar="قادم قريباً" data-en="Coming Soon">قادم قريباً</span></div>
+        <div class="cs-icon" style="background:#eff6ff;">🔗</div>
+        <h3 data-ar="تكامل مع أنظمة المحاسبة" data-en="Accounting System Integration">تكامل مع أنظمة المحاسبة</h3>
+        <p data-ar="ربط مباشر مع أنظمة المحاسبة السعودية (القيود، أوركل، SAP) لتدفق بيانات لحظي بين المبيعات والمالية." data-en="Direct integration with Saudi accounting systems (Qoyod, Oracle, SAP) for real-time data flow between sales and finance.">ربط مباشر مع أنظمة المحاسبة السعودية (القيود، أوركل، SAP) لتدفق بيانات لحظي بين المبيعات والمالية.</p>
+      </div>
+      <div class="cs-card">
+        <div class="cs-badge"><span>🔜</span><span data-ar="قادم قريباً" data-en="Coming Soon">قادم قريباً</span></div>
+        <div class="cs-icon" style="background:#fff7ed;">🗺️</div>
+        <h3 data-ar="خريطة توزيع ذكية" data-en="Smart Distribution Map">خريطة توزيع ذكية</h3>
+        <p data-ar="تصوير جغرافي لعملائك وطلباتك على الخريطة. تخطيط مسارات المندوبين بذكاء لتقليل التكلفة وزيادة عدد الزيارات." data-en="Geographical visualization of your customers and orders on the map. Intelligent rep route planning to reduce costs and increase visits.">تصوير جغرافي لعملائك وطلباتك على الخريطة. تخطيط مسارات المندوبين بذكاء لتقليل التكلفة وزيادة عدد الزيارات.</p>
+      </div>
+      <div class="cs-card">
+        <div class="cs-badge"><span>🔜</span><span data-ar="قادم قريباً" data-en="Coming Soon">قادم قريباً</span></div>
+        <div class="cs-icon" style="background:#fef2f2;">📋</div>
+        <h3 data-ar="نظام العقود والمستندات" data-en="Contracts & Documents System">نظام العقود والمستندات</h3>
+        <p data-ar="إنشاء وتوقيع العقود والاتفاقيات إلكترونياً. أرشفة تلقائية لكل مستند مرتبط بالعميل والطلب." data-en="Create and digitally sign contracts and agreements. Automatic archiving of every document linked to customer and order.">إنشاء وتوقيع العقود والاتفاقيات إلكترونياً. أرشفة تلقائية لكل مستند مرتبط بالعميل والطلب.</p>
+      </div>
+      <div class="cs-card">
+        <div class="cs-badge"><span>🔜</span><span data-ar="قادم قريباً" data-en="Coming Soon">قادم قريباً</span></div>
+        <div class="cs-icon" style="background:#f0fdf4;">🎯</div>
+        <h3 data-ar="نظام الأهداف والحوافز" data-en="Goals & Incentives System">نظام الأهداف والحوافز</h3>
+        <p data-ar="ضع أهدافاً شهرية لكل مندوب وفريق، واربطها بنظام الحوافز تلقائياً. محفّز مُدمج في النظام يرفع الأداء." data-en="Set monthly goals for each rep and team, automatically link them to the incentive system. Built-in motivator that boosts performance.">ضع أهدافاً شهرية لكل مندوب وفريق، واربطها بنظام الحوافز تلقائياً. محفّز مُدمج في النظام يرفع الأداء.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px;">
+      <a href="https://wa.me/966555880695?text=أريد أن أكون أول من يجرب الميزات الجديدة في أدوار" target="_blank">
+        <button class="btn-hero-primary" style="margin:0 auto;" data-ar="📩 أبلغني عند الإطلاق" data-en="📩 Notify Me at Launch">📩 أبلغني عند الإطلاق</button>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="section" style="background:var(--bg2)" id="how">
+<section class="section" id="how">
   <div class="section-inner">
     <div style="text-align:center;max-width:700px;margin:0 auto;">
       <div class="section-tag" data-ar="كيف يعمل" data-en="How It Works">كيف يعمل</div>
-      <h2 class="section-title" data-ar="ابدأ وأنت في طريقك خلال ٤ خطوات" data-en="Get Started on Your Way in 4 Steps">ابدأ وأنت في طريقك خلال ٤ خطوات</h2>
+      <h2 class="section-title" data-ar="ابدأ خلال 4 خطوات بسيطة" data-en="Get Started in 4 Simple Steps">ابدأ خلال 4 خطوات بسيطة</h2>
       <p class="section-subtitle" data-ar="لا تعقيد، لا برمجة، لا تدريب طويل. أدوار يعمل من اليوم الأول." data-en="No complexity, no coding, no long training. Adwar works from day one.">لا تعقيد، لا برمجة، لا تدريب طويل. أدوار يعمل من اليوم الأول.</p>
     </div>
     <div class="how-grid">
-      <div class="how-step">
-        <div class="how-num">١</div>
-        <h3 data-ar="إعداد الحساب" data-en="Account Setup">إعداد الحساب</h3>
-        <p data-ar="استكمل بيانات شركتك وأضف فريقك في دقائق معدودة بدون أي خبرة تقنية." data-en="Complete your company data and add your team in minutes with no technical experience needed.">استكمل بيانات شركتك وأضف فريقك في دقائق معدودة بدون أي خبرة تقنية.</p>
-      </div>
-      <div class="how-step">
-        <div class="how-num">٢</div>
-        <h3 data-ar="تحديد الأدوار" data-en="Define Roles">تحديد الأدوار</h3>
-        <p data-ar="عيّن كل شخص في مكانه الصحيح: مالك، مدير، مندوب، محاسب. كل واحد يرى ما يحتاجه فقط." data-en="Assign everyone to their right place: owner, manager, rep, accountant. Each sees only what they need.">عيّن كل شخص في مكانه الصحيح: مالك، مدير، مندوب، محاسب. كل واحد يرى ما يحتاجه فقط.</p>
-      </div>
-      <div class="how-step">
-        <div class="how-num">٣</div>
-        <h3 data-ar="ابدأ العمل" data-en="Start Working">ابدأ العمل</h3>
-        <p data-ar="أدخل عملاءك وطلباتك وابدأ تتبّع المبيعات والفواتير من أي جهاز في أي مكان." data-en="Enter your customers and orders and start tracking sales and invoices from any device anywhere.">أدخل عملاءك وطلباتك وابدأ تتبّع المبيعات والفواتير من أي جهاز في أي مكان.</p>
-      </div>
-      <div class="how-step">
-        <div class="how-num">٤</div>
-        <h3 data-ar="راقب وقرّر" data-en="Monitor & Decide">راقب وقرّر</h3>
-        <p data-ar="احصل على تقارير لحظية واتخذ قراراتك الاستراتيجية مبنية على بيانات حقيقية وموثّقة." data-en="Get real-time reports and make your strategic decisions based on real documented data.">احصل على تقارير لحظية واتخذ قراراتك الاستراتيجية مبنية على بيانات حقيقية وموثّقة.</p>
-      </div>
+      <div class="how-step"><div class="how-num">١</div><h3 data-ar="إعداد الحساب" data-en="Account Setup">إعداد الحساب</h3><p data-ar="استكمل بيانات شركتك وأضف فريقك في دقائق بدون خبرة تقنية." data-en="Complete your company data and add your team in minutes without technical experience.">استكمل بيانات شركتك وأضف فريقك في دقائق بدون خبرة تقنية.</p></div>
+      <div class="how-step"><div class="how-num">٢</div><h3 data-ar="تحديد الأدوار" data-en="Define Roles">تحديد الأدوار</h3><p data-ar="عيّن كل شخص: مالك، مدير، مندوب، محاسب. كل واحد يرى ما يحتاجه فقط." data-en="Assign everyone: owner, manager, rep, accountant. Each sees only what they need.">عيّن كل شخص: مالك، مدير، مندوب، محاسب. كل واحد يرى ما يحتاجه فقط.</p></div>
+      <div class="how-step"><div class="how-num">٣</div><h3 data-ar="ابدأ العمل" data-en="Start Working">ابدأ العمل</h3><p data-ar="أدخل عملاءك وطلباتك وابدأ التتبع من أي جهاز في أي مكان." data-en="Enter your customers and orders and start tracking from any device anywhere.">أدخل عملاءك وطلباتك وابدأ التتبع من أي جهاز في أي مكان.</p></div>
+      <div class="how-step"><div class="how-num">٤</div><h3 data-ar="راقب وقرّر" data-en="Monitor & Decide">راقب وقرّر</h3><p data-ar="احصل على تقارير لحظية واتخذ قراراتك الاستراتيجية مبنية على بيانات حقيقية." data-en="Get real-time reports and make strategic decisions based on real data.">احصل على تقارير لحظية واتخذ قراراتك الاستراتيجية مبنية على بيانات حقيقية.</p></div>
     </div>
   </div>
 </section>
 <!-- TESTIMONIALS -->
-<section class="section" id="testimonials">
+<section class="section" style="background:var(--bg2)" id="testimonials">
   <div class="section-inner">
     <div style="text-align:center;max-width:700px;margin:0 auto;">
       <div class="section-tag" data-ar="آراء العملاء" data-en="Customer Stories">آراء العملاء</div>
@@ -922,68 +654,50 @@ img { max-width: 100%; }
     <div class="testimonials-grid">
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text" data-ar='"قبل أدوار كنت أقضي ساعتين يومياً في الاتصالات لمعرفة مَن أنجز ماذا. الآن أفتح لوحة واحدة وأعرف كل شيء في ثوانٍ. هذا ليس برنامجاً، هذه راحة بال."' data-en='"Before Adwar I spent two hours daily on calls to know who did what. Now I open one dashboard and know everything in seconds. This is not software, this is peace of mind."'>&#34;قبل أدوار كنت أقضي ساعتين يومياً في الاتصالات لمعرفة مَن أنجز ماذا. الآن أفتح لوحة واحدة وأعرف كل شيء في ثوانٍ. هذا ليس برنامجاً، هذه راحة بال.&#34;</p>
+        <p class="testimonial-text" data-ar='"قبل أدوار كنت أقضي ساعتين يومياً في الاتصالات. الآن أفتح لوحة واحدة وأعرف كل شيء في ثوانٍ. هذا ليس برنامجاً، هذه راحة بال."' data-en='"Before Adwar I spent two hours daily on calls. Now I open one dashboard and know everything in seconds. This is not software, this is peace of mind."'>&#34;قبل أدوار كنت أقضي ساعتين يومياً في الاتصالات. الآن أفتح لوحة واحدة وأعرف كل شيء في ثوانٍ. هذا ليس برنامجاً، هذه راحة بال.&#34;</p>
         <div class="testimonial-author">
-          <img class="author-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=88&h=88&fit=crop&crop=face" alt="محمد العتيبي" onerror="this.src='https://ui-avatars.com/api/?name=محمد+العتيبي&background=0A1628&color=fff&size=88'">
-          <div class="author-info">
-            <div class="name" data-ar="محمد العتيبي" data-en="Mohammed Al-Otaibi">محمد العتيبي</div>
-            <div class="role" data-ar="مدير تجاري — شركة النجم للتوزيع، الرياض" data-en="Commercial Director — Al-Najm Distribution, Riyadh">مدير تجاري — شركة النجم للتوزيع، الرياض</div>
-          </div>
+          <img class="author-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=88&h=88&fit=crop&crop=face" alt="محمد العتيبي" onerror="this.src='https://ui-avatars.com/api/?name=ME&background=0A1628&color=fff&size=88'">
+          <div class="author-info"><div class="name" data-ar="محمد العتيبي" data-en="Mohammed Al-Otaibi">محمد العتيبي</div><div class="role" data-ar="مدير تجاري — شركة النجم، الرياض" data-en="Commercial Director — Al-Najm Co., Riyadh">مدير تجاري — شركة النجم، الرياض</div></div>
         </div>
       </div>
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text" data-ar='"أصبح فريق المبيعات يعمل باستقلالية أكبر. كل مندوب يعرف هدفه بدقة ويتابع طلباته بنفسه. الخلافات مع المحاسبة انتهت لأن الأرقام واضحة للجميع."' data-en='"The sales team now works with greater independence. Every rep knows their target precisely and follows their orders themselves. Disputes with accounting ended because numbers are clear for everyone."'>&#34;أصبح فريق المبيعات يعمل باستقلالية أكبر. كل مندوب يعرف هدفه بدقة ويتابع طلباته بنفسه. الخلافات مع المحاسبة انتهت لأن الأرقام واضحة للجميع.&#34;</p>
+        <p class="testimonial-text" data-ar='"فريق المبيعات أصبح يعمل باستقلالية أكبر. كل مندوب يعرف هدفه بدقة. الخلافات مع المحاسبة انتهت لأن الأرقام واضحة للجميع."' data-en='"The sales team now works with greater independence. Every rep knows their target precisely. Disputes with accounting ended because numbers are clear for everyone."'>&#34;فريق المبيعات أصبح يعمل باستقلالية أكبر. كل مندوب يعرف هدفه بدقة. الخلافات مع المحاسبة انتهت لأن الأرقام واضحة للجميع.&#34;</p>
         <div class="testimonial-author">
-          <img class="author-avatar" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=88&h=88&fit=crop&crop=face" alt="سارة البلوي" onerror="this.src='https://ui-avatars.com/api/?name=سارة+البلوي&background=2563eb&color=fff&size=88'">
-          <div class="author-info">
-            <div class="name" data-ar="سارة البلوي" data-en="Sara Al-Balawi">سارة البلوي</div>
-            <div class="role" data-ar="مشرفة مبيعات — مجموعة الأفق، جدة" data-en="Sales Supervisor — Al-Ufuq Group, Jeddah">مشرفة مبيعات — مجموعة الأفق، جدة</div>
-          </div>
+          <img class="author-avatar" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=88&h=88&fit=crop&crop=face" alt="سارة البلوي" onerror="this.src='https://ui-avatars.com/api/?name=SB&background=2563eb&color=fff&size=88'">
+          <div class="author-info"><div class="name" data-ar="سارة البلوي" data-en="Sara Al-Balawi">سارة البلوي</div><div class="role" data-ar="مشرفة مبيعات — مجموعة الأفق، جدة" data-en="Sales Supervisor — Al-Ufuq Group, Jeddah">مشرفة مبيعات — مجموعة الأفق، جدة</div></div>
         </div>
       </div>
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text" data-ar='"كمحاسب، كنت أعاني من تعارض الأرقام مع المبيعات. أدوار أنهى هذا التعارض تماماً — كلنا ننظر لنفس البيانات بنفس الوقت."' data-en='"As an accountant, I suffered from number conflicts with sales. Adwar ended this conflict completely — we all look at the same data at the same time."'>&#34;كمحاسب، كنت أعاني من تعارض الأرقام مع المبيعات. أدوار أنهى هذا التعارض تماماً — كلنا ننظر لنفس البيانات بنفس الوقت.&#34;</p>
+        <p class="testimonial-text" data-ar='"كمحاسب، كنت أعاني من تعارض الأرقام مع المبيعات. أدوار أنهى هذا تماماً — كلنا ننظر لنفس البيانات في نفس الوقت."' data-en='"As an accountant, I suffered from number conflicts with sales. Adwar ended this completely — we all look at the same data at the same time."'>&#34;كمحاسب، كنت أعاني من تعارض الأرقام مع المبيعات. أدوار أنهى هذا تماماً — كلنا ننظر لنفس البيانات في نفس الوقت.&#34;</p>
         <div class="testimonial-author">
-          <img class="author-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=88&h=88&fit=crop&crop=face" alt="فيصل الشمري" onerror="this.src='https://ui-avatars.com/api/?name=فيصل+الشمري&background=10b981&color=fff&size=88'">
-          <div class="author-info">
-            <div class="name" data-ar="فيصل الشمري" data-en="Faisal Al-Shammari">فيصل الشمري</div>
-            <div class="role" data-ar="محاسب رئيسي — مؤسسة الفيصل للمواد، الدمام" data-en="Chief Accountant — Al-Faisal Materials Est., Dammam">محاسب رئيسي — مؤسسة الفيصل للمواد، الدمام</div>
-          </div>
+          <img class="author-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=88&h=88&fit=crop&crop=face" alt="فيصل الشمري" onerror="this.src='https://ui-avatars.com/api/?name=FS&background=10b981&color=fff&size=88'">
+          <div class="author-info"><div class="name" data-ar="فيصل الشمري" data-en="Faisal Al-Shammari">فيصل الشمري</div><div class="role" data-ar="محاسب رئيسي — مؤسسة الفيصل، الدمام" data-en="Chief Accountant — Al-Faisal Est., Dammam">محاسب رئيسي — مؤسسة الفيصل، الدمام</div></div>
         </div>
       </div>
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text" data-ar='"أدوار غيّر طريقة عملي كمندوب. الآن أنظّم زياراتي، أتابع طلباتي، وأرى أدائي مقارنة بالهدف. هذا الوضوح أزال الضغط وزاد إنتاجيتي 40%."' data-en='"Adwar changed how I work as a sales rep. Now I organize my visits, follow my orders, and see my performance vs target. This clarity removed pressure and increased my productivity by 40%."'>&#34;أدوار غيّر طريقة عملي كمندوب. الآن أنظّم زياراتي، أتابع طلباتي، وأرى أدائي مقارنة بالهدف. هذا الوضوح أزال الضغط وزاد إنتاجيتي 40%.&#34;</p>
+        <p class="testimonial-text" data-ar='"أدوار غيّر طريقة عملي. الآن أنظّم زياراتي، أتابع طلباتي، وأرى أدائي مقارنة بالهدف. الوضوح أزال الضغط وزاد إنتاجيتي 40%."' data-en='"Adwar changed how I work. Now I organize my visits, follow my orders, and see my performance vs target. This clarity removed pressure and increased my productivity by 40%."'>&#34;أدوار غيّر طريقة عملي. الآن أنظّم زياراتي، أتابع طلباتي، وأرى أدائي مقارنة بالهدف. الوضوح أزال الضغط وزاد إنتاجيتي 40%.&#34;</p>
         <div class="testimonial-author">
-          <img class="author-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=88&h=88&fit=crop&crop=face" alt="عبدالله الدوسري" onerror="this.src='https://ui-avatars.com/api/?name=عبدالله+الدوسري&background=8b5cf6&color=fff&size=88'">
-          <div class="author-info">
-            <div class="name" data-ar="عبدالله الدوسري" data-en="Abdullah Al-Dosari">عبدالله الدوسري</div>
-            <div class="role" data-ar="مندوب مبيعات — الخليج التجارية، الخبر" data-en="Sales Rep — Al-Khalij Trading, Al-Khobar">مندوب مبيعات — الخليج التجارية، الخبر</div>
-          </div>
+          <img class="author-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=88&h=88&fit=crop&crop=face" alt="عبدالله الدوسري" onerror="this.src='https://ui-avatars.com/api/?name=AD&background=8b5cf6&color=fff&size=88'">
+          <div class="author-info"><div class="name" data-ar="عبدالله الدوسري" data-en="Abdullah Al-Dosari">عبدالله الدوسري</div><div class="role" data-ar="مندوب مبيعات — الخليج التجارية، الخبر" data-en="Sales Rep — Al-Khalij Trading, Al-Khobar">مندوب مبيعات — الخليج التجارية، الخبر</div></div>
         </div>
       </div>
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text" data-ar='"كمالكة للشركة، أهم ما يميّز أدوار هو أن الشركة أصبحت تعمل بشكل منظم حتى في غيابي. هذا هو أثمن ما اكتسبناه — استقلالية النظام عن الأشخاص."' data-en='"As company owner, what distinguishes Adwar most is that the company now works systematically even in my absence. This is the most valuable thing we gained — system independence from people."'>&#34;كمالكة للشركة، أهم ما يميّز أدوار هو أن الشركة أصبحت تعمل بشكل منظم حتى في غيابي. هذا هو أثمن ما اكتسبناه — استقلالية النظام عن الأشخاص.&#34;</p>
+        <p class="testimonial-text" data-ar='"أهم ما يميّز أدوار أن الشركة أصبحت تعمل بشكل منظم حتى في غيابي. استقلالية النظام عن الأشخاص هو أثمن ما اكتسبناه."' data-en='"What distinguishes Adwar most is that the company now works systematically even in my absence. System independence from people is the most valuable thing we gained."'>&#34;أهم ما يميّز أدوار أن الشركة أصبحت تعمل بشكل منظم حتى في غيابي. استقلالية النظام عن الأشخاص هو أثمن ما اكتسبناه.&#34;</p>
         <div class="testimonial-author">
-          <img class="author-avatar" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=88&h=88&fit=crop&crop=face" alt="نورة السبيعي" onerror="this.src='https://ui-avatars.com/api/?name=نورة+السبيعي&background=ec4899&color=fff&size=88'">
-          <div class="author-info">
-            <div class="name" data-ar="نورة السبيعي" data-en="Noura Al-Subaie">نورة السبيعي</div>
-            <div class="role" data-ar="مالكة — مجموعة السبيعي التجارية، جدة" data-en="Owner — Al-Subaie Commercial Group, Jeddah">مالكة — مجموعة السبيعي التجارية، جدة</div>
-          </div>
+          <img class="author-avatar" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=88&h=88&fit=crop&crop=face" alt="نورة السبيعي" onerror="this.src='https://ui-avatars.com/api/?name=NS&background=ec4899&color=fff&size=88'">
+          <div class="author-info"><div class="name" data-ar="نورة السبيعي" data-en="Noura Al-Subaie">نورة السبيعي</div><div class="role" data-ar="مالكة — مجموعة السبيعي التجارية، جدة" data-en="Owner — Al-Subaie Group, Jeddah">مالكة — مجموعة السبيعي التجارية، جدة</div></div>
         </div>
       </div>
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text" data-ar='"من أكثر ما أقدّره في أدوار أن كل قسم يرى بياناته ويتحمّل مسؤوليته. انخفض اعتمادنا على الموظفين الأفراد وأصبح النظام هو المرجع."' data-en='"What I value most about Adwar is that each department sees its data and takes responsibility. Our dependence on individual employees decreased and the system became the reference."'>&#34;من أكثر ما أقدّره في أدوار أن كل قسم يرى بياناته ويتحمّل مسؤوليته. انخفض اعتمادنا على الموظفين الأفراد وأصبح النظام هو المرجع.&#34;</p>
+        <p class="testimonial-text" data-ar='"كل قسم يرى بياناته ويتحمّل مسؤوليته. انخفض اعتمادنا على الأفراد وأصبح النظام هو المرجع. هذا التحول غيّر ثقافة الشركة بأكملها."' data-en='"Each department sees its data and takes responsibility. Our dependence on individuals decreased and the system became the reference. This transformation changed the entire company culture."'>&#34;كل قسم يرى بياناته ويتحمّل مسؤوليته. انخفض اعتمادنا على الأفراد وأصبح النظام هو المرجع. هذا التحول غيّر ثقافة الشركة بأكملها.&#34;</p>
         <div class="testimonial-author">
-          <img class="author-avatar" src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=88&h=88&fit=crop&crop=face" alt="خالد المطيري" onerror="this.src='https://ui-avatars.com/api/?name=خالد+المطيري&background=0A1628&color=fff&size=88'">
-          <div class="author-info">
-            <div class="name" data-ar="خالد المطيري" data-en="Khalid Al-Mutairi">خالد المطيري</div>
-            <div class="role" data-ar="مدير عمليات — نجد للتوزيع، الرياض" data-en="Operations Manager — Najd Distribution, Riyadh">مدير عمليات — نجد للتوزيع، الرياض</div>
-          </div>
+          <img class="author-avatar" src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=88&h=88&fit=crop&crop=face" alt="خالد المطيري" onerror="this.src='https://ui-avatars.com/api/?name=KM&background=0A1628&color=fff&size=88'">
+          <div class="author-info"><div class="name" data-ar="خالد المطيري" data-en="Khalid Al-Mutairi">خالد المطيري</div><div class="role" data-ar="مدير عمليات — نجد للتوزيع، الرياض" data-en="Operations Manager — Najd Distribution, Riyadh">مدير عمليات — نجد للتوزيع، الرياض</div></div>
         </div>
       </div>
     </div>
@@ -991,101 +705,54 @@ img { max-width: 100%; }
 </section>
 
 <!-- PRICING -->
-<section class="section" style="background:var(--bg2)" id="pricing">
+<section class="section" id="pricing">
   <div class="section-inner">
     <div style="text-align:center;max-width:700px;margin:0 auto;">
       <div class="section-tag" data-ar="الأسعار" data-en="Pricing">الأسعار</div>
       <h2 class="section-title" data-ar="استثمار يُحقق عائداً حقيقياً" data-en="An Investment That Delivers Real Returns">استثمار يُحقق عائداً حقيقياً</h2>
-      <p class="section-subtitle" data-ar="بدون رسوم إضافية أو عقود طويلة. ابدأ مجاناً لمدة 14 يوماً." data-en="No extra fees or long contracts. Start free for 14 days.">بدون رسوم إضافية أو عقود طويلة. ابدأ مجاناً لمدة 14 يوماً.</p>
+      <p class="section-subtitle" data-ar="بدون رسوم إضافية. ابدأ مجاناً لمدة 14 يوماً." data-en="No extra fees. Start free for 14 days.">بدون رسوم إضافية. ابدأ مجاناً لمدة 14 يوماً.</p>
     </div>
     <div class="pricing-grid">
       <div class="pricing-card">
-        <div class="pricing-name" data-ar="Starter" data-en="Starter">Starter</div>
+        <div class="pricing-name">Starter</div>
         <div class="pricing-price">1,500<span data-ar=" ﷼/شهر" data-en=" SAR/mo"> ﷼/شهر</span></div>
-        <div class="pricing-desc" data-ar="مثالي للشركات الناشئة وفرق المبيعات الصغيرة" data-en="Ideal for startups and small sales teams">مثالي للشركات الناشئة وفرق المبيعات الصغيرة</div>
+        <div class="pricing-desc" data-ar="للشركات الناشئة وفرق المبيعات الصغيرة" data-en="For startups and small sales teams">للشركات الناشئة وفرق المبيعات الصغيرة</div>
         <div class="pricing-features">
-          <div class="pricing-feature">
-            <div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <span data-ar="حتى 5 مستخدمين" data-en="Up to 5 users">حتى 5 مستخدمين</span>
-          </div>
-          <div class="pricing-feature">
-            <div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <span data-ar="إدارة الطلبات والعملاء" data-en="Orders & Customer Management">إدارة الطلبات والعملاء</span>
-          </div>
-          <div class="pricing-feature">
-            <div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <span data-ar="تقارير أساسية" data-en="Basic Reports">تقارير أساسية</span>
-          </div>
-          <div class="pricing-feature">
-            <div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <span data-ar="دعم عبر الواتساب" data-en="WhatsApp Support">دعم عبر الواتساب</span>
-          </div>
+          <div class="pricing-feature"><div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span data-ar="حتى 5 مستخدمين" data-en="Up to 5 users">حتى 5 مستخدمين</span></div>
+          <div class="pricing-feature"><div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span data-ar="إدارة الطلبات والعملاء" data-en="Orders & Customer Management">إدارة الطلبات والعملاء</span></div>
+          <div class="pricing-feature"><div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span data-ar="تقارير أساسية" data-en="Basic Reports">تقارير أساسية</span></div>
+          <div class="pricing-feature"><div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span data-ar="دعم عبر الواتساب" data-en="WhatsApp Support">دعم عبر الواتساب</span></div>
         </div>
-        <a href="https://wa.me/966555880695?text=أريد الاشتراك في باقة Starter" target="_blank">
-          <button class="btn-plan" data-ar="ابدأ مجاناً" data-en="Start Free">ابدأ مجاناً</button>
-        </a>
+        <a href="https://wa.me/966555880695?text=أريد الاشتراك في باقة Starter" target="_blank"><button class="btn-plan" data-ar="ابدأ مجاناً" data-en="Start Free">ابدأ مجاناً</button></a>
       </div>
-
       <div class="pricing-card featured">
         <div class="pricing-badge" data-ar="الأكثر طلباً" data-en="Most Popular">الأكثر طلباً</div>
-        <div class="pricing-name" data-ar="Growth" data-en="Growth">Growth</div>
+        <div class="pricing-name">Growth</div>
         <div class="pricing-price">2,500<span data-ar=" ﷼/شهر" data-en=" SAR/mo"> ﷼/شهر</span></div>
         <div class="pricing-desc" data-ar="لفرق المبيعات المتنامية وشركات التوزيع الجادة" data-en="For growing sales teams and serious distribution companies">لفرق المبيعات المتنامية وشركات التوزيع الجادة</div>
         <div class="pricing-features">
-          <div class="pricing-feature">
-            <div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <span data-ar="حتى 20 مستخدماً" data-en="Up to 20 users">حتى 20 مستخدماً</span>
-          </div>
-          <div class="pricing-feature">
-            <div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <span data-ar="لوحات تحكم متخصصة لكل دور" data-en="Specialized dashboards per role">لوحات تحكم متخصصة لكل دور</span>
-          </div>
-          <div class="pricing-feature">
-            <div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <span data-ar="تقارير متقدمة وBI" data-en="Advanced Reports & BI">تقارير متقدمة وBI</span>
-          </div>
-          <div class="pricing-feature">
-            <div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <span data-ar="إدارة المهام والعمليات الكاملة" data-en="Full Task & Process Management">إدارة المهام والعمليات الكاملة</span>
-          </div>
-          <div class="pricing-feature">
-            <div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <span data-ar="أولوية الدعم الفني" data-en="Priority Technical Support">أولوية الدعم الفني</span>
-          </div>
+          <div class="pricing-feature"><div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span data-ar="حتى 20 مستخدماً" data-en="Up to 20 users">حتى 20 مستخدماً</span></div>
+          <div class="pricing-feature"><div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span data-ar="لوحات تحكم مخصصة لكل دور" data-en="Custom dashboards per role">لوحات تحكم مخصصة لكل دور</span></div>
+          <div class="pricing-feature"><div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span data-ar="تقارير متقدمة وBI" data-en="Advanced Reports & BI">تقارير متقدمة وBI</span></div>
+          <div class="pricing-feature"><div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span data-ar="إدارة المهام والعمليات الكاملة" data-en="Full Task & Process Management">إدارة المهام والعمليات الكاملة</span></div>
+          <div class="pricing-feature"><div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span data-ar="أولوية الدعم الفني" data-en="Priority Support">أولوية الدعم الفني</span></div>
         </div>
-        <a href="https://wa.me/966555880695?text=أريد الاشتراك في باقة Growth" target="_blank">
-          <button class="btn-plan" data-ar="احجز عرضاً تجريبياً" data-en="Book a Demo">احجز عرضاً تجريبياً</button>
-        </a>
+        <a href="https://wa.me/966555880695?text=أريد الاشتراك في باقة Growth" target="_blank"><button class="btn-plan" data-ar="احجز عرضاً تجريبياً" data-en="Book a Demo">احجز عرضاً تجريبياً</button></a>
       </div>
-
       <div class="pricing-card">
-        <div class="pricing-name" data-ar="Enterprise" data-en="Enterprise">Enterprise</div>
-        <div class="pricing-price" style="font-size:28px;" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</div>
+        <div class="pricing-name">Enterprise</div>
+        <div class="pricing-price" style="font-size:26px;" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</div>
         <div class="pricing-desc" data-ar="للمجموعات الكبيرة والشركات متعددة الفروع" data-en="For large groups and multi-branch companies">للمجموعات الكبيرة والشركات متعددة الفروع</div>
         <div class="pricing-features">
-          <div class="pricing-feature">
-            <div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <span data-ar="مستخدمون غير محدودين" data-en="Unlimited Users">مستخدمون غير محدودين</span>
-          </div>
-          <div class="pricing-feature">
-            <div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <span data-ar="تكاملات مع أنظمة ERP الحالية" data-en="Integrations with existing ERP systems">تكاملات مع أنظمة ERP الحالية</span>
-          </div>
-          <div class="pricing-feature">
-            <div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <span data-ar="تخصيص كامل للنظام" data-en="Full System Customization">تخصيص كامل للنظام</span>
-          </div>
-          <div class="pricing-feature">
-            <div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <span data-ar="مدير حساب مخصص" data-en="Dedicated Account Manager">مدير حساب مخصص</span>
-          </div>
+          <div class="pricing-feature"><div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span data-ar="مستخدمون غير محدودين" data-en="Unlimited Users">مستخدمون غير محدودين</span></div>
+          <div class="pricing-feature"><div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span data-ar="تكاملات مع أنظمة ERP" data-en="ERP Integrations">تكاملات مع أنظمة ERP</span></div>
+          <div class="pricing-feature"><div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span data-ar="تخصيص كامل للنظام" data-en="Full Customization">تخصيص كامل للنظام</span></div>
+          <div class="pricing-feature"><div class="pricing-chk"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span data-ar="مدير حساب مخصص" data-en="Dedicated Account Manager">مدير حساب مخصص</span></div>
         </div>
-        <a href="https://wa.me/966555880695?text=أريد معرفة المزيد عن باقة Enterprise" target="_blank">
-          <button class="btn-plan" data-ar="تواصل الآن" data-en="Contact Now">تواصل الآن</button>
-        </a>
+        <a href="https://wa.me/966555880695?text=أريد معرفة المزيد عن باقة Enterprise" target="_blank"><button class="btn-plan" data-ar="تواصل الآن" data-en="Contact Now">تواصل الآن</button></a>
       </div>
     </div>
-    <div style="text-align:center;margin-top:24px;font-size:14px;color:var(--text3);" data-ar="✓ ضمان استرداد كامل خلال 3 أشهر — بلا شروط بلا أسئلة" data-en="✓ Full refund guarantee for 3 months — no conditions no questions">✓ ضمان استرداد كامل خلال 3 أشهر — بلا شروط بلا أسئلة</div>
+    <div style="text-align:center;margin-top:20px;font-size:14px;color:var(--text3);" data-ar="✓ ضمان استرداد كامل خلال 3 أشهر — بلا شروط بلا أسئلة" data-en="✓ Full refund guarantee for 3 months — no conditions no questions">✓ ضمان استرداد كامل خلال 3 أشهر — بلا شروط بلا أسئلة</div>
   </div>
 </section>
 <!-- VISION 2030 -->
@@ -1094,28 +761,14 @@ img { max-width: 100%; }
     <div>
       <div class="vision-tag" data-ar="رؤية 2030" data-en="Vision 2030">رؤية 2030</div>
       <h2 data-ar="مستقبل التوزيع في عصر رؤية 2030" data-en="The Future of Distribution in the Vision 2030 Era">مستقبل التوزيع في عصر رؤية 2030</h2>
-      <p data-ar="رؤية 2030 تتطلب شركات توزيع تعمل بكفاءة مؤسسية حقيقية. أدوار هو النظام الذي يُحوّل شركتك من الاعتماد على الأفراد إلى الاعتماد على المنظومة — وهذا هو قلب التحول الرقمي." data-en="Vision 2030 requires distribution companies that operate with true institutional efficiency. Adwar is the system that transforms your company from depending on individuals to depending on the system — this is the heart of digital transformation.">رؤية 2030 تتطلب شركات توزيع تعمل بكفاءة مؤسسية حقيقية. أدوار هو النظام الذي يُحوّل شركتك من الاعتماد على الأفراد إلى الاعتماد على المنظومة — وهذا هو قلب التحول الرقمي.</p>
-      <a href="https://wa.me/966555880695" target="_blank">
-        <button class="btn-hero-primary" style="background:#3b82f6;" data-ar="احجز عرضاً توضيحياً" data-en="Book a Demo">احجز عرضاً توضيحياً</button>
-      </a>
+      <p data-ar="رؤية 2030 تتطلب شركات توزيع تعمل بكفاءة مؤسسية حقيقية. أدوار هو النظام الذي يُحوّل شركتك من الاعتماد على الأفراد إلى الاعتماد على المنظومة — وهذا هو قلب التحول الرقمي." data-en="Vision 2030 requires distribution companies that operate with true institutional efficiency. Adwar transforms your company from depending on individuals to depending on the system — the heart of digital transformation.">رؤية 2030 تتطلب شركات توزيع تعمل بكفاءة مؤسسية حقيقية. أدوار هو النظام الذي يُحوّل شركتك من الاعتماد على الأفراد إلى الاعتماد على المنظومة — وهذا هو قلب التحول الرقمي.</p>
+      <a href="https://wa.me/966555880695" target="_blank"><button class="btn-hero-primary" style="background:#3b82f6;" data-ar="احجز عرضاً توضيحياً" data-en="Book a Demo">احجز عرضاً توضيحياً</button></a>
     </div>
     <div class="vision-stats">
-      <div class="vision-stat">
-        <div class="vision-stat-num">70%</div>
-        <div class="vision-stat-label" data-ar="تقليل وقت المتابعة اليومية" data-en="Reduction in Daily Follow-up Time">تقليل وقت المتابعة اليومية</div>
-      </div>
-      <div class="vision-stat">
-        <div class="vision-stat-num">40%</div>
-        <div class="vision-stat-label" data-ar="نمو في إنتاجية فريق المبيعات" data-en="Growth in Sales Team Productivity">نمو في إنتاجية فريق المبيعات</div>
-      </div>
-      <div class="vision-stat">
-        <div class="vision-stat-num">95%</div>
-        <div class="vision-stat-label" data-ar="دقة في التقارير والبيانات" data-en="Accuracy in Reports and Data">دقة في التقارير والبيانات</div>
-      </div>
-      <div class="vision-stat">
-        <div class="vision-stat-num">3x</div>
-        <div class="vision-stat-label" data-ar="سرعة اتخاذ القرار" data-en="Decision-Making Speed">سرعة اتخاذ القرار</div>
-      </div>
+      <div class="vision-stat"><div class="vision-stat-num">70%</div><div class="vision-stat-label" data-ar="تقليل وقت المتابعة اليومية" data-en="Reduction in Daily Follow-up Time">تقليل وقت المتابعة اليومية</div></div>
+      <div class="vision-stat"><div class="vision-stat-num">40%</div><div class="vision-stat-label" data-ar="نمو في إنتاجية المبيعات" data-en="Growth in Sales Productivity">نمو في إنتاجية المبيعات</div></div>
+      <div class="vision-stat"><div class="vision-stat-num">95%</div><div class="vision-stat-label" data-ar="دقة في التقارير والبيانات" data-en="Accuracy in Reports and Data">دقة في التقارير والبيانات</div></div>
+      <div class="vision-stat"><div class="vision-stat-num">3x</div><div class="vision-stat-label" data-ar="سرعة اتخاذ القرار" data-en="Decision-Making Speed">سرعة اتخاذ القرار</div></div>
     </div>
   </div>
 </div>
@@ -1128,30 +781,11 @@ img { max-width: 100%; }
       <h2 class="section-title" data-ar="إجابات لأسئلتك الأكثر أهمية" data-en="Answers to Your Most Important Questions">إجابات لأسئلتك الأكثر أهمية</h2>
     </div>
     <div class="faq-list">
-      <div class="faq-item" onclick="this.classList.toggle('open')">
-        <div class="faq-q"><span data-ar="هل أدوار مناسب لشركتنا الصغيرة؟" data-en="Is Adwar suitable for our small company?">هل أدوار مناسب لشركتنا الصغيرة؟</span><span class="faq-icon">+</span></div>
-        <div class="faq-a" data-ar="نعم. أدوار مُصمَّم لشركات التوزيع والبيع بالجملة بمختلف أحجامها — من الشركات الناشئة إلى المجموعات الكبيرة. الباقة Starter مثالية للفرق الصغيرة وتشمل كل ما تحتاجه للبدء فوراً." data-en="Yes. Adwar is designed for distribution and wholesale companies of all sizes — from startups to large groups. The Starter package is perfect for small teams and includes everything you need to start immediately.">نعم. أدوار مُصمَّم لشركات التوزيع والبيع بالجملة بمختلف أحجامها — من الشركات الناشئة إلى المجموعات الكبيرة. الباقة Starter مثالية للفرق الصغيرة وتشمل كل ما تحتاجه للبدء فوراً.</div>
-      </div>
-      <div class="faq-item" onclick="this.classList.toggle('open')">
-        <div class="faq-q"><span data-ar="كم يستغرق الإعداد والتدريب؟" data-en="How long does setup and training take?">كم يستغرق الإعداد والتدريب؟</span><span class="faq-icon">+</span></div>
-        <div class="faq-a" data-ar="يمكنك البدء خلال يوم واحد. نوفر لك جلسة إعداد مباشرة مع فريقنا، ونضمن أن كل مستخدم يعرف دوره بوضوح قبل انتهاء الجلسة. لا خبرة تقنية مطلوبة." data-en="You can start within one day. We provide you with a direct setup session with our team, and we ensure every user knows their role clearly before the session ends. No technical experience required.">يمكنك البدء خلال يوم واحد. نوفر لك جلسة إعداد مباشرة مع فريقنا، ونضمن أن كل مستخدم يعرف دوره بوضوح قبل انتهاء الجلسة. لا خبرة تقنية مطلوبة.</div>
-      </div>
-      <div class="faq-item" onclick="this.classList.toggle('open')">
-        <div class="faq-q"><span data-ar="هل بياناتنا آمنة؟" data-en="Is our data secure?">هل بياناتنا آمنة؟</span><span class="faq-icon">+</span></div>
-        <div class="faq-a" data-ar="بياناتك محمية بتشفير من الدرجة المؤسسية. نحتفظ بنسخ احتياطية يومية، وكل وصول مُسجَّل ومحدود بالصلاحيات. شركتك ستكون أكثر أماناً من أي خوادم محلية." data-en="Your data is protected with enterprise-grade encryption. We maintain daily backups, and all access is logged and limited by permissions. Your company will be safer than any local servers.">بياناتك محمية بتشفير من الدرجة المؤسسية. نحتفظ بنسخ احتياطية يومية، وكل وصول مُسجَّل ومحدود بالصلاحيات. شركتك ستكون أكثر أماناً من أي خوادم محلية.</div>
-      </div>
-      <div class="faq-item" onclick="this.classList.toggle('open')">
-        <div class="faq-q"><span data-ar="ماذا يحدث إذا لم أكن راضياً؟" data-en="What happens if I'm not satisfied?">ماذا يحدث إذا لم أكن راضياً؟</span><span class="faq-icon">+</span></div>
-        <div class="faq-a" data-ar="نضمن استرداد كامل للمبلغ خلال الأشهر الثلاثة الأولى — بلا شروط، بلا أسئلة. ثقتنا في قيمة أدوار تجعلنا نتحمل هذا الالتزام." data-en="We guarantee a full refund during the first three months — no conditions, no questions. Our confidence in Adwar's value makes us take on this commitment.">نضمن استرداد كامل للمبلغ خلال الأشهر الثلاثة الأولى — بلا شروط، بلا أسئلة. ثقتنا في قيمة أدوار تجعلنا نتحمل هذا الالتزام.</div>
-      </div>
-      <div class="faq-item" onclick="this.classList.toggle('open')">
-        <div class="faq-q"><span data-ar="هل يعمل على الجوال؟" data-en="Does it work on mobile?">هل يعمل على الجوال؟</span><span class="faq-icon">+</span></div>
-        <div class="faq-a" data-ar="نعم. أدوار مُحسَّن للعمل على جميع الأجهزة: الهاتف، التابلت، والحاسوب. مندوبوك في الميدان يستخدمونه من هواتفهم، وأنت ترى لوحة القيادة من مكتبك في نفس اللحظة." data-en="Yes. Adwar is optimized to work on all devices: phone, tablet, and computer. Your field reps use it from their phones, and you see the dashboard from your office at the same moment.">نعم. أدوار مُحسَّن للعمل على جميع الأجهزة: الهاتف، التابلت، والحاسوب. مندوبوك في الميدان يستخدمونه من هواتفهم، وأنت ترى لوحة القيادة من مكتبك في نفس اللحظة.</div>
-      </div>
-      <div class="faq-item" onclick="this.classList.toggle('open')">
-        <div class="faq-q"><span data-ar="هل يمكن دمجه مع الأنظمة الحالية؟" data-en="Can it be integrated with existing systems?">هل يمكن دمجه مع الأنظمة الحالية؟</span><span class="faq-icon">+</span></div>
-        <div class="faq-a" data-ar="نعم. باقة Enterprise تشمل تكاملات مع أنظمة ERP والمحاسبة الشائعة. تواصل معنا لمناقشة متطلباتك التقنية المحددة." data-en="Yes. The Enterprise package includes integrations with popular ERP and accounting systems. Contact us to discuss your specific technical requirements.">نعم. باقة Enterprise تشمل تكاملات مع أنظمة ERP والمحاسبة الشائعة. تواصل معنا لمناقشة متطلباتك التقنية المحددة.</div>
-      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q"><span data-ar="هل أدوار مناسب لشركتنا الصغيرة؟" data-en="Is Adwar suitable for our small company?">هل أدوار مناسب لشركتنا الصغيرة؟</span><span class="faq-icon">+</span></div><div class="faq-a" data-ar="نعم. أدوار مُصمَّم لشركات التوزيع بمختلف أحجامها. الباقة Starter مثالية للفرق الصغيرة وتشمل كل ما تحتاجه للبدء فوراً." data-en="Yes. Adwar is designed for distribution companies of all sizes. The Starter package is perfect for small teams and includes everything you need to start immediately.">نعم. أدوار مُصمَّم لشركات التوزيع بمختلف أحجامها. الباقة Starter مثالية للفرق الصغيرة وتشمل كل ما تحتاجه للبدء فوراً.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q"><span data-ar="كم يستغرق الإعداد والتدريب؟" data-en="How long does setup and training take?">كم يستغرق الإعداد والتدريب؟</span><span class="faq-icon">+</span></div><div class="faq-a" data-ar="يمكنك البدء خلال يوم واحد. نوفر جلسة إعداد مباشرة ونضمن أن كل مستخدم يعرف دوره بوضوح. لا خبرة تقنية مطلوبة." data-en="You can start within one day. We provide a direct setup session and ensure every user knows their role clearly. No technical experience required.">يمكنك البدء خلال يوم واحد. نوفر جلسة إعداد مباشرة ونضمن أن كل مستخدم يعرف دوره بوضوح. لا خبرة تقنية مطلوبة.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q"><span data-ar="هل بياناتنا آمنة؟" data-en="Is our data secure?">هل بياناتنا آمنة؟</span><span class="faq-icon">+</span></div><div class="faq-a" data-ar="بياناتك محمية بتشفير من الدرجة المؤسسية مع نسخ احتياطية يومية وصلاحيات محددة لكل مستخدم." data-en="Your data is protected with enterprise-grade encryption with daily backups and specific permissions for each user.">بياناتك محمية بتشفير من الدرجة المؤسسية مع نسخ احتياطية يومية وصلاحيات محددة لكل مستخدم.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q"><span data-ar="ماذا يحدث إذا لم أكن راضياً؟" data-en="What if I'm not satisfied?">ماذا يحدث إذا لم أكن راضياً؟</span><span class="faq-icon">+</span></div><div class="faq-a" data-ar="نضمن استرداد كامل للمبلغ خلال الأشهر الثلاثة الأولى — بلا شروط، بلا أسئلة." data-en="We guarantee a full refund during the first three months — no conditions, no questions.">نضمن استرداد كامل للمبلغ خلال الأشهر الثلاثة الأولى — بلا شروط، بلا أسئلة.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q"><span data-ar="هل يعمل على الجوال؟" data-en="Does it work on mobile?">هل يعمل على الجوال؟</span><span class="faq-icon">+</span></div><div class="faq-a" data-ar="نعم. أدوار مُحسَّن على جميع الأجهزة. مندوبوك يستخدمونه من هواتفهم وأنت ترى لوحة القيادة من مكتبك في نفس اللحظة." data-en="Yes. Adwar is optimized for all devices. Your reps use it from their phones and you see the dashboard from your office at the same moment.">نعم. أدوار مُحسَّن على جميع الأجهزة. مندوبوك يستخدمونه من هواتفهم وأنت ترى لوحة القيادة من مكتبك في نفس اللحظة.</div></div>
     </div>
   </div>
 </section>
@@ -1159,14 +793,10 @@ img { max-width: 100%; }
 <!-- CTA BANNER -->
 <div class="cta-banner">
   <h2 data-ar="شركتك تستحق نظاماً يعمل بعدك" data-en="Your Company Deserves a System That Works After You">شركتك تستحق نظاماً يعمل بعدك</h2>
-  <p data-ar="انضم إلى أكثر من 200 شركة توزيع تعمل بأدوار الآن. ابدأ مجاناً — بدون بطاقة ائتمان." data-en="Join over 200 distribution companies working with Adwar now. Start free — no credit card.">انضم إلى أكثر من 200 شركة توزيع تعمل بأدوار الآن. ابدأ مجاناً — بدون بطاقة ائتمان.</p>
+  <p data-ar="انضم إلى أكثر من 200 شركة توزيع تعمل بأدوار الآن." data-en="Join over 200 distribution companies working with Adwar now.">انضم إلى أكثر من 200 شركة توزيع تعمل بأدوار الآن.</p>
   <div class="cta-btns">
-    <a href="https://wa.me/966555880695" target="_blank">
-      <button class="btn-cta-primary" data-ar="ابدأ الآن مجاناً" data-en="Start Free Now">ابدأ الآن مجاناً</button>
-    </a>
-    <a href="https://wa.me/966555880695?text=أريد مشاهدة عرض توضيحي لأدوار" target="_blank">
-      <button class="btn-cta-secondary" data-ar="شاهد عرضاً توضيحياً" data-en="Watch a Demo">شاهد عرضاً توضيحياً</button>
-    </a>
+    <a href="https://wa.me/966555880695" target="_blank"><button class="btn-cta-primary" data-ar="ابدأ الآن مجاناً" data-en="Start Free Now">ابدأ الآن مجاناً</button></a>
+    <a href="https://wa.me/966555880695?text=أريد مشاهدة عرض توضيحي" target="_blank"><button class="btn-cta-secondary" data-ar="شاهد عرضاً توضيحياً" data-en="Watch a Demo">شاهد عرضاً توضيحياً</button></a>
   </div>
 </div>
 
@@ -1183,19 +813,19 @@ img { max-width: 100%; }
         <div class="contact-icon">💬</div>
         <h3 data-ar="واتساب" data-en="WhatsApp">واتساب</h3>
         <p data-ar="تواصل مباشرة مع فريق المبيعات" data-en="Contact the sales team directly">تواصل مباشرة مع فريق المبيعات</p>
-        <a href="https://wa.me/966555880695" target="_blank">+966 555 880 695</a>
+        <a href="https://wa.me/966555880695" target="_blank"><span class="phone-num">+966 555 880 695</span></a>
       </div>
       <div class="contact-card">
         <div class="contact-icon">✉️</div>
         <h3 data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</h3>
         <p data-ar="للاستفسارات والعروض التجارية" data-en="For inquiries and business proposals">للاستفسارات والعروض التجارية</p>
-        <a href="https://mail.google.com/mail/?view=cm&to=karimkatabi@gmail.com" target="_blank">karimkatabi@gmail.com</a>
+        <a href="https://mail.google.com/mail/?view=cm&to=karimkatabi@gmail.com" target="_blank"><span style="direction:ltr;unicode-bidi:isolate;display:inline-block;">karimkatabi@gmail.com</span></a>
       </div>
       <div class="contact-card">
         <div class="contact-icon">📍</div>
         <h3 data-ar="العنوان" data-en="Location">العنوان</h3>
         <p data-ar="شركة أدوار التقنية" data-en="Adwar Technology Company">شركة أدوار التقنية</p>
-        <span style="color:var(--text2);font-size:14px;" data-ar="جدة — حي السلامة، المملكة العربية السعودية" data-en="Jeddah — Al-Salamah District, Saudi Arabia">جدة — حي السلامة، المملكة العربية السعودية</span>
+        <span style="color:var(--text2);font-size:14px;" data-ar="جدة — حي السلامة، المملكة العربية السعودية" data-en="Jeddah — Al-Salamah, Saudi Arabia">جدة — حي السلامة، المملكة العربية السعودية</span>
       </div>
     </div>
   </div>
@@ -1205,16 +835,17 @@ img { max-width: 100%; }
 <footer class="footer">
   <div class="footer-inner">
     <div>
-      <div class="footer-logo">
-        <img src="https://lh3.googleusercontent.com/aida/ADBb0ugNWYFTZ9CuV2Fz60WN4X9kJTxSZBOD0fPt_bWQNHHpKL9EGRPCDfNM6TkYU3j-J1_IhMFbLjxB6hLQ1NRxM5PG4pI_1JGBqjJrdcKknIbTcPEOhQ0d1WN5s8NQZ3cGGf4Xs5FyJLPk3hqEuO0T1SfI5PG4-Xe1AGfVHKCq1mZ4RVp7pF-nLYSmLO7EuHVNWAUVRVrgRbUMT79EMW2h64g1Ax5CBTM2QMmb9-3ADZXqVJsQUK_FVn5E2W00tqM3xUdIH9VLaHb0BFGIJ0P04MPCYH0x3ZEAJFkHIJMlLhqh3-EoiyDRziqhbEsHcyCy93IwJMUXZjrQJSoJJHBTB83oiHq3tJqWzXGjrKu9YhMuqYUKWCkRbkFZJj1LVbV3Dj2JeXQO2C7wdHJhDqTQobFelHi89H8vCGN5Kfon1wTUYRsm3j0DsI7LvQTPNSBsAe7Vb_HJcEHn4VDLzq8a" alt="أدوار" style="height:32px;width:auto;object-fit:contain;">
-      </div>
-      <p class="footer-desc" data-ar="أدوار: تنظيم. أداء. قياس. — نظام إدارة المبيعات المصمَّم لشركات التوزيع والبيع بالجملة في المملكة العربية السعودية." data-en="Adwar: Organize. Perform. Measure. — The sales management system designed for distribution and wholesale companies in Saudi Arabia.">أدوار: تنظيم. أداء. قياس. — نظام إدارة المبيعات المصمَّم لشركات التوزيع والبيع بالجملة في المملكة العربية السعودية.</p>
+      <div class="footer-logo"><svg viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="adwar">
+  <path class="logo-svg-path" d="M6 7 L14 28 L21 14 L28 28 L36 7" stroke="#0A1628" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text class="logo-svg-text" x="44" y="27" font-family="Inter,sans-serif" font-size="20" font-weight="800" fill="#0A1628" letter-spacing="-0.5">adwar</text>
+</svg></div>
+      <p class="footer-desc" data-ar="أدوار: تنظيم. أداء. قياس. — نظام إدارة المبيعات لشركات التوزيع والبيع بالجملة في المملكة العربية السعودية." data-en="Adwar: Organize. Perform. Measure. — Sales management system for distribution and wholesale companies in Saudi Arabia.">أدوار: تنظيم. أداء. قياس. — نظام إدارة المبيعات لشركات التوزيع والبيع بالجملة في المملكة العربية السعودية.</p>
     </div>
     <div class="footer-col">
       <h4 data-ar="المنتج" data-en="Product">المنتج</h4>
       <ul>
         <li><a href="#features" data-ar="الميزات" data-en="Features">الميزات</a></li>
-        <li><a href="#how" data-ar="كيف يعمل" data-en="How It Works">كيف يعمل</a></li>
+        <li><a href="#roadmap" data-ar="خارطة الطريق" data-en="Roadmap">خارطة الطريق</a></li>
         <li><a href="#pricing" data-ar="الأسعار" data-en="Pricing">الأسعار</a></li>
         <li><a href="#faq" data-ar="الأسئلة الشائعة" data-en="FAQ">الأسئلة الشائعة</a></li>
       </ul>
@@ -1222,15 +853,15 @@ img { max-width: 100%; }
     <div class="footer-col">
       <h4 data-ar="التواصل" data-en="Connect">التواصل</h4>
       <ul>
-        <li><a href="https://wa.me/966555880695" target="_blank">+966 555 880 695</a></li>
-        <li><a href="https://mail.google.com/mail/?view=cm&to=karimkatabi@gmail.com" target="_blank">karimkatabi@gmail.com</a></li>
-        <li><a href="#contact" data-ar="جدة، المملكة العربية السعودية" data-en="Jeddah, Saudi Arabia">جدة، المملكة العربية السعودية</a></li>
+        <li><a href="https://wa.me/966555880695" target="_blank"><span class="phone-num">+966 555 880 695</span></a></li>
+        <li><a href="https://mail.google.com/mail/?view=cm&to=karimkatabi@gmail.com" target="_blank" style="direction:ltr;unicode-bidi:isolate;display:inline-block;">karimkatabi@gmail.com</a></li>
+        <li><span data-ar="جدة، المملكة العربية السعودية" data-en="Jeddah, Saudi Arabia">جدة، المملكة العربية السعودية</span></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <span data-ar="© 2026 شركة أدوار التقنية. جميع الحقوق محفوظة." data-en="© 2026 Adwar Technology Company. All rights reserved.">© 2026 شركة أدوار التقنية. جميع الحقوق محفوظة.</span>
-    <span data-ar="جدة — حي السلامة، المملكة العربية السعودية" data-en="Jeddah — Al-Salamah District, Saudi Arabia">جدة — حي السلامة، المملكة العربية السعودية</span>
+    <span data-ar="جدة — حي السلامة، المملكة العربية السعودية" data-en="Jeddah — Al-Salamah, Saudi Arabia">جدة — حي السلامة، المملكة العربية السعودية</span>
   </div>
 </footer>
 
@@ -1242,44 +873,37 @@ img { max-width: 100%; }
 </a>
 
 <script>
-// THEME
 function toggleTheme(){
-  var html=document.documentElement;
-  var t=html.getAttribute('data-theme')==='dark'?'light':'dark';
-  html.setAttribute('data-theme',t);
+  var h=document.documentElement;
+  var t=h.getAttribute('data-theme')==='dark'?'light':'dark';
+  h.setAttribute('data-theme',t);
   document.getElementById('themeToggle').textContent=t==='dark'?'☀️':'🌙';
   localStorage.setItem('adwar-theme',t);
 }
 (function(){
   var t=localStorage.getItem('adwar-theme')||'light';
   document.documentElement.setAttribute('data-theme',t);
-  var btn=document.getElementById('themeToggle');
-  if(btn)btn.textContent=t==='dark'?'☀️':'🌙';
+  var b=document.getElementById('themeToggle');
+  if(b)b.textContent=t==='dark'?'☀️':'🌙';
 })();
 
-// LANGUAGE
 var _lang='ar';
 function toggleLang(){
   _lang=_lang==='ar'?'en':'ar';
-  var html=document.documentElement;
-  html.setAttribute('lang',_lang);
-  html.setAttribute('dir',_lang==='ar'?'rtl':'ltr');
+  var h=document.documentElement;
+  h.setAttribute('lang',_lang);
+  h.setAttribute('dir',_lang==='ar'?'rtl':'ltr');
   document.getElementById('langToggle').textContent=_lang==='ar'?'EN':'ع';
-  // Update all data-ar/data-en elements
   document.querySelectorAll('[data-ar],[data-en]').forEach(function(el){
     var txt=el.getAttribute('data-'+_lang);
     if(txt)el.textContent=txt;
   });
-  // Fix font
-  document.body.style.fontFamily=_lang==='en'?"'Inter','IBM Plex Sans Arabic',sans-serif":"'IBM Plex Sans Arabic','Inter',sans-serif";
+  document.body.style.fontFamily=_lang==='en'?"'Inter',sans-serif":"'IBM Plex Sans Arabic','Inter',sans-serif";
   localStorage.setItem('adwar-lang',_lang);
 }
 (function(){
   var l=localStorage.getItem('adwar-lang');
-  if(l&&l!=='ar'){
-    _lang='ar';
-    toggleLang();
-  }
+  if(l&&l!=='ar'){_lang='ar';toggleLang();}
 })();
 </script>
 </body>
